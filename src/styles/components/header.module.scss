@@ -1,0 +1,84 @@
+@use "../variables.module" as *;
+
+.headerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  position: sticky;
+  top: 0;
+}
+
+.headerComp {
+  z-index: 10;
+  background-color: $primaryColor;
+  width: 100%;
+  $padding-y: 5px;
+  padding-top: $padding-y;
+  padding-bottom: $padding-y;
+  $padding-x: 50px;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4.849999904632568px);
+
+  display: flex;
+  flex-direction: row;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: row;
+  height: min-content;
+  width: fit-content;
+  gap: 2px;
+  color: white;
+  text-decoration: none;
+}
+
+.cursorWrapper {
+  flex: 1;
+  width: 20px;
+  padding: 20px;
+  padding-left: 0px;
+}
+
+.cursor {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
+}
+
+@keyframes cursorAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.nav {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  gap: 60px;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: end;
+  padding-right: 40px;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}

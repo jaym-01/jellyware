@@ -1,0 +1,10 @@
+@use "variables.module" as *;
+
+.html,
+.body {
+  top: 0;
+  left: 0;
+  color-scheme: dark;
+  background-color: $darkBackground;
+  margin: 0;
+}
