@@ -1,5 +1,52 @@
+@use "../../variables.module" as *;
+
 .heroWrapper {
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  padding-top: 10vh;
+  height: 70vh;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
+}
+
+.introCont {
+  background-color: $primaryColor;
+  padding: 40px;
+  width: 80vw;
+}
+
+.introCont * {
+  color: white;
+  font-size: 20px;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.linkBox {
+  background-color: $primaryColor;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.linkBox:hover {
+  transform: scale(1.05);
+}
+
+.linkText {
+  color: white;
+}
+
+.bashPrompt {
 }
