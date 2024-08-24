@@ -5,7 +5,7 @@
   flex-direction: column;
   padding-top: 10vh;
   height: 70vh;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   gap: 30px;
 }
@@ -48,5 +48,22 @@
   color: white;
 }
 
-.bashPrompt {
+.lineContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.cursor {
+  height: 22px;
+  width: 12px;
+  background-color: white;
+  animation: $blinking-animation;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
 }

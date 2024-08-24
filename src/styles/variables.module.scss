@@ -1,2 +1,15 @@
 $darkBackground: #22272e;
 $primaryColor: rgba(40, 44, 52, 0.8);
+$blinking-animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
+
+@keyframes cursorAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

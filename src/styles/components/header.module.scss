@@ -23,7 +23,7 @@
   backdrop-filter: blur(4.849999904632568px);
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .titleWrapper {
@@ -45,33 +45,22 @@
 
 .cursor {
   height: 100%;
-  width: 100%;
+  width: 20px;
   background-color: white;
-  animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
-}
-
-@keyframes cursorAnimation {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+  animation: $blinking-animation;
 }
 
 .nav {
+  $gap: 50px;
+  padding-top: $gap;
+  padding-bottom: $gap;
   display: flex;
-  flex: 1;
-  flex-direction: row;
-  gap: 100px;
+  flex-direction: column;
+  gap: $gap;
   color: white;
   text-decoration: none;
-  align-items: center;
-  justify-content: end;
-  padding-right: 40px;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .navLink {
@@ -81,4 +70,69 @@
 
 .navLink:hover {
   text-decoration: underline;
+}
+
+.ddbWrapper {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dropdownButton {
+  font-size: 20px;
+}
+
+.dropdownButton:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.topWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+@media screen and (min-width: 1150px) {
+  .dropdownButton {
+    display: none;
+  }
+  .titleWrapper {
+    width: fit-content;
+  }
+
+  .topWrapper {
+    width: fit-content;
+  }
+
+  .nav {
+    $gap: 0px;
+    padding-top: $gap;
+    padding-bottom: $gap;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 100px;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 40px;
+  }
+
+  .navLink {
+    color: white;
+    text-decoration: none;
+  }
+
+  .navLink:hover {
+    text-decoration: underline;
+  }
+
+  .headerComp {
+    display: flex;
+    flex-direction: row;
+  }
 }

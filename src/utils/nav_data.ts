@@ -15,8 +15,12 @@ export const navData: {
     link: "/#projects",
   },
   {
-    title: "tools[]",
-    link: "/",
+    title: "github",
+    link: "https://github.com/jaym-01",
+  },
+  {
+    title: "linkedin",
+    link: "https://www.linkedin.com/in/jay-mistry1/",
   },
   {
     title: "cv",

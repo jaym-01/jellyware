@@ -1,14 +1,17 @@
-import Image from "next/image";
 import styles from "@/styles/components/home/hero.module.scss";
-import { linkData } from "./hero_data";
+import { Typing } from "./TextComponents";
 
+const text: string[] = [" cat intro.txt"];
 export default function Hero() {
   return (
     <div className={styles.heroWrapper}>
       <div className={styles.introCont}>
-        <p>
-          <BashPrompt /> cat intro.txt
-        </p>
+        <div className={styles.lineContainer}>
+          <div className={styles.textWrapper}>
+            <BashPrompt />
+            <Typing text={text[0]} delay={10000} />
+          </div>
+        </div>
         <p>
           Hi, I{"'"}m Jay!
           <br />
@@ -19,40 +22,23 @@ export default function Hero() {
           <BashPrompt /> cat whoami.txt
         </p>
         <p>
-          I{"'"}m a Software engineer with experience in full stack development.
-          <br />I{"'"}m also interested in low level development, hardware and
-          ML!!
+          I{"'"}m a software engineer and student at Imperial College London,
+          interested in full stack development, low level programming and ML!
+          <br />
+          <br />
+          You can find out more about my skills below vvv
           <br />
           <br />
         </p>
-      </div>
-      <div className={styles.linkContainer}>
-        {linkData.map(({ text, link, image }, i) => (
-          // <div className={styles.linkBox} key={i}>
-          <a
-            key={i}
-            className={styles.linkBox}
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src={image}
-              alt={text}
-              width={30}
-              height={30}
-              layout="fixed"
-            />
-            <p className={styles.linkText}>{text}</p>
-          </a>
-          // </div>
-        ))}
+        <p>
+          <BashPrompt /> clear
+        </p>
       </div>
     </div>
   );
 }
 
-function BashPrompt() {
+export function BashPrompt() {
   return (
     <span
       style={{
