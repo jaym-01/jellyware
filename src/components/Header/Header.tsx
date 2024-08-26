@@ -6,6 +6,8 @@ import { navData } from "@/utils/nav_data";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const headerBaseHeight = 160;
+
 const baseDelay = 0.3;
 const unitDelay = 0.1;
 
@@ -29,7 +31,7 @@ function getNavLinkAnimateProps(i: number) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [smallScreen, setSmallScreen] = useState(false);
+  const [smallScreen, setSmallScreen] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -50,29 +52,19 @@ export default function Header() {
       <motion.header
         className={styles.headerComp}
         initial={{
-          height: 95,
+          height: "auto",
         }}
         animate={{
-          height: open && smallScreen ? 500 : 95,
+          height: "auto",
         }}
         transition={{ duration: baseDelay, ease: "easeInOut" }}
       >
-        <div className={styles.topWrapper}>
-          <Link href={navData[0].link} className={styles.titleWrapper}>
-            <h1 className={styles.headerTitle}>{navData[0].title}</h1>
-            <div className={styles.cursorWrapper}>
-              <div className={styles.cursor}></div>
-            </div>
-          </Link>
-          <div className={styles.ddbWrapper}>
-            <span
-              className={styles.dropdownButton}
-              onClick={() => setOpen((prev) => !prev)}
-            >
-              {open ? "clear" : "ls"}
-            </span>
+        <Link href={navData[0].link} className={styles.titleWrapper}>
+          <h1 className={styles.headerTitle}>{navData[0].title}</h1>
+          <div className={styles.cursorWrapper}>
+            <div className={styles.cursor}></div>
           </div>
-        </div>
+        </Link>
 
         {(!smallScreen || open) && (
           <nav className={styles.nav}>
@@ -97,6 +89,15 @@ export default function Header() {
             )}
           </nav>
         )}
+
+        <div className={styles.ddbWrapper}>
+          <span
+            className={styles.dropdownButton}
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            {open ? "clear" : "ls"}
+          </span>
+        </div>
       </motion.header>
     </div>
   );

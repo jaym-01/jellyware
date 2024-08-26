@@ -3,6 +3,7 @@
 .heroWrapper {
   display: flex;
   flex-direction: column;
+  padding: 20px;
   padding-top: 10vh;
   height: 70vh;
   justify-content: center;
@@ -13,12 +14,13 @@
 .introCont {
   background-color: $primaryColor;
   padding: 40px;
-  width: 80vw;
+  // width: 80vw;
 }
 
 .introCont * {
   color: white;
   font-size: 20px;
+  text-wrap: wrap;
 }
 
 .linkContainer {

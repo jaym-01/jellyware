@@ -4,5 +4,3 @@ const nextConfig = {
     includePaths: [`./src/styles`],
   },
 };
-
-export default nextConfig;

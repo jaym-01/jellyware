@@ -66,6 +66,7 @@
 .navLink {
   color: white;
   text-decoration: none;
+  width: max-content;
 }
 
 .navLink:hover {
@@ -76,7 +77,10 @@
   flex: 1;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  $padding-y: 10px;
+  padding-top: $padding-y;
+  padding-bottom: $padding-y;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -91,12 +95,12 @@
 
 .topWrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
 }
 
-@media screen and (min-width: 1150px) {
-  .dropdownButton {
+@media screen and (min-width: $smallScreenThreshold) {
+  .ddbWrapper {
     display: none;
   }
   .titleWrapper {

@@ -1,6 +1,7 @@
 $darkBackground: #22272e;
 $primaryColor: rgba(40, 44, 52, 0.8);
 $blinking-animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
+$smallScreenThreshold: 1150px;
 
 @keyframes cursorAnimation {
   0% {
