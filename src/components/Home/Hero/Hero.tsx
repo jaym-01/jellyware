@@ -1,66 +1,51 @@
-import styles from "@/styles/components/home/hero.module.scss";
-import { Typing } from "./TextComponents";
+"use client";
 
-const text: string[] = [" cat intro.txt"];
+import styles from "@/styles/components/home/hero.module.scss";
+import { Typing, BashPrompt, TextOutput, typingSpeed } from "./TextComponents";
+import { displayText } from "./text";
+
+const displayTime = 4000;
+
 export default function Hero() {
   return (
     <div className={styles.heroWrapper}>
       <div className={styles.introCont}>
-        <div className={styles.lineContainer}>
-          <div className={styles.textWrapper}>
-            <BashPrompt />
-            <Typing text={text[0]} delay={10000} />
-          </div>
-        </div>
-        <p>
-          Hi, I{"'"}m Jay!
-          <br />
-          <br />
-        </p>
+        <BashPrompt />
+        {displayText.map((text, i) => {
+          console.log("here:", text.command.length * typingSpeed);
 
-        <p>
-          <BashPrompt /> cat whoami.txt
-        </p>
-        <p>
-          I{"'"}m a software engineer and student at Imperial College London,
-          interested in full stack development, low level programming and ML!
-          <br />
-          <br />
-          You can find out more about my skills below vvv
-          <br />
-          <br />
-        </p>
-        <p>
-          <BashPrompt /> clear
-        </p>
+          const commandDisplayTime =
+            displayText
+              .slice(0, i + 1)
+              .map((val) => val.command.length)
+              .reduce((acc, val) => acc + val) *
+              typingSpeed +
+            500;
+
+          return (
+            <>
+              <Typing
+                text={text.command}
+                showDelay={(displayText.length - i - 1) * displayTime}
+                hideDelay={i * displayTime}
+              />
+
+              <TextOutput
+                key={i}
+                text={text.output}
+                hideDelay={commandDisplayTime * (i + 1)}
+                showDelay={
+                  displayTime -
+                  commandDisplayTime +
+                  displayTime * (displayText.length - i - 2) +
+                  displayText[displayText.length - 1].command.length *
+                    typingSpeed
+                }
+              />
+            </>
+          );
+        })}
       </div>
     </div>
-  );
-}
-
-export function BashPrompt() {
-  return (
-    <span
-      style={{
-        fontWeight: "bold",
-      }}
-    >
-      <span
-        style={{
-          color: "#16C60C",
-        }}
-      >
-        home@jellyware
-      </span>
-      :
-      <span
-        style={{
-          color: "#3B78FF",
-        }}
-      >
-        ~
-      </span>
-      $
-    </span>
   );
 }
