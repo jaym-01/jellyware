@@ -2,21 +2,46 @@
 
 import styles from "@/styles/components/home/hero.module.scss";
 import { useEffect, useState } from "react";
-import { ReadTextProps } from "./text";
-import motion from "framer-motion";
+import { ReadTextProps, displayText } from "./text";
 
-export const typingSpeed: number = 150;
-const transitionDelay = "0.8s";
+const displayTextDuration = 6000;
 
-export function Typing({ text }: { text: ReadTextProps }) {
+export function IntroText() {
   const [index, setIndex] = useState<number>(0);
+  const [textNum, setTextNum] = useState<number>(0);
 
+  useEffect(() => {
+    if (index === 0) setTextNum((prev) => (prev + 1) % displayText.length);
+  }, [index]);
+
+  return (
+    <div className={styles.lineContainer}>
+      <Typing text={displayText[textNum]} index={index} setIndex={setIndex} />
+    </div>
+  );
+}
+
+const typingSpeed: number = 150;
+const transitionDelay = "0.8s";
+const clearText = "clear";
+
+export function Typing({
+  text,
+  setIndex,
+  index,
+}: {
+  text: ReadTextProps;
+  setIndex: (data: number | ((prev: number) => number)) => void;
+  index: number;
+}) {
   useEffect(() => {
     const interval = setInterval(
       () => {
-        setIndex((prev) => (prev + 1) % (text.command.length + 1));
+        setIndex(
+          (prev) => (prev + 1) % (text.command.length + 1 + clearText.length)
+        );
       },
-      index === text.command.length ? 3000 : typingSpeed
+      index === text.command.length ? displayTextDuration : typingSpeed
     );
     return () => clearInterval(interval);
   }, [index]);
@@ -30,11 +55,13 @@ export function Typing({ text }: { text: ReadTextProps }) {
     <div>
       <div className={styles.lineContainer}>
         <BashPrompt />
-        <span>{text.command.slice(0, index)}</span>
+        <span>
+          {text.command.slice(0, Math.min(index, text.command.length))}
+        </span>
         <div
           className={index === 0 ? styles.cursorAnimation : styles.cursor}
           style={{
-            opacity: index === text.command.length ? 0 : 1,
+            opacity: index >= text.command.length ? 0 : 1,
             transitionDelay: "0.3s",
           }}
         ></div>
@@ -42,6 +69,9 @@ export function Typing({ text }: { text: ReadTextProps }) {
       <p style={outputStyle}>{text.output}</p>
       <div style={outputStyle} className={styles.lineContainer}>
         <BashPrompt />
+        {index > text.command.length && (
+          <span>{clearText.slice(0, index - text.command.length)}</span>
+        )}
         <div className={styles.cursorAnimation}></div>
       </div>
     </div>

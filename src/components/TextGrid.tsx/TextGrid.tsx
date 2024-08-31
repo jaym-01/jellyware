@@ -8,18 +8,35 @@ export default function TextGrid() {
 
   return (
     <div className={styles.container}>
-      {vals.map((val, i) => {
-        return (
-          <div key={i} className={styles["line-num"]}>
+      <div className={styles.baseCols}>
+        {vals.map((val) => (
+          <p
+            key={val}
+            style={{
+              padding: "0",
+            }}
+          >
             {val}
-          </div>
-        );
-      })}
-      {vals.map((val, i) => (
-        <div key={i} className={styles["highlight"]}>
-          t
-        </div>
-      ))}
+          </p>
+        ))}
+      </div>
+      <div className={styles.baseCols}>
+        {vals.map((val) => (
+          <p
+            key={val}
+            style={{
+              padding: "0",
+            }}
+          >
+            {val}
+          </p>
+        ))}
+      </div>
+      <div className={styles.highlightWrapper}>
+        {vals.map((val) => (
+          <div key={val} className={styles.highlight}></div>
+        ))}
+      </div>
     </div>
   );
 }
