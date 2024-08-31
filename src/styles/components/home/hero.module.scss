@@ -14,7 +14,8 @@
 .introCont {
   background-color: $primaryColor;
   padding: 40px;
-  // width: 80vw;
+  width: 80vw;
+  text-wrap: wrap;
 }
 
 .introCont * {
@@ -34,6 +35,10 @@
   height: 22px;
   width: 12px;
   background-color: white;
+}
+
+.cursorAnimation {
+  @extend .cursor;
   animation: $blinking-animation;
 }
 
