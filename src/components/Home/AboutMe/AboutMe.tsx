@@ -20,9 +20,9 @@ Languages/Frameworks I've used:
 - C
 - Express.js
 
-I also love developing with Linux, I'm familiar with Linux terminal command and basic bash scripting.
+I also love developing with Linux, I'm familiar with Linux terminal commands and basic bash scripting.
 
-I have also briefly worked with Docker, from helping build an app that automatically containerizes a python FastAPI backend.
+I have also briefly worked with Docker, after helping build an app that automatically containerizes a python FastAPI backend.
 
 I'm familiar with Git and Github, from using it in almost all of my projects.
 

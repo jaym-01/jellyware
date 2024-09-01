@@ -4,14 +4,18 @@ import styles from "@/styles/components/home/hero.module.scss";
 import { useEffect, useState } from "react";
 import { ReadTextProps, displayText } from "./text";
 
-const displayTextDuration = 6000;
+const displayTextDuration = 5000;
 
 export function IntroText() {
   const [index, setIndex] = useState<number>(0);
   const [textNum, setTextNum] = useState<number>(0);
 
   useEffect(() => {
-    if (index === 0) setTextNum((prev) => (prev + 1) % displayText.length);
+    if (index === 0)
+      setTimeout(
+        () => setTextNum((prev) => (prev + 1) % displayText.length),
+        100
+      );
   }, [index]);
 
   return (
@@ -22,7 +26,7 @@ export function IntroText() {
 }
 
 const typingSpeed: number = 150;
-const transitionDelay = "0.8s";
+const transitionDelay = "0.1s";
 const clearText = "clear";
 
 export function Typing({
@@ -41,13 +45,19 @@ export function Typing({
           (prev) => (prev + 1) % (text.command.length + 1 + clearText.length)
         );
       },
-      index === text.command.length ? displayTextDuration : typingSpeed
+      index === text.command.length
+        ? text.duration
+        : index === text.command.length + clearText.length
+        ? 500
+        : index === 0
+        ? typingSpeed + 100
+        : typingSpeed
     );
     return () => clearInterval(interval);
   }, [index]);
 
   const outputStyle = {
-    opacity: index === text.command.length ? 1 : 0,
+    opacity: index >= text.command.length ? 1 : 0,
     transitionDelay: transitionDelay,
   };
 
