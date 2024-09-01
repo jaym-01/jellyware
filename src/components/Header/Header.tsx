@@ -38,7 +38,11 @@ export default function Header() {
             {navData.slice(1).map((navLink, i) =>
               navLink.link[0] === "/" ? (
                 <div key={i}>
-                  <Link href={navLink.link} className={styles.navLink}>
+                  <Link
+                    href={navLink.link}
+                    className={styles.navLink}
+                    {...(navLink.link === "/cv" ? { target: "_blank" } : {})}
+                  >
                     {navLink.title}
                   </Link>
                 </div>

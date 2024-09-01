@@ -1,0 +1,5 @@
+.cm-line,
+.cm-gutterElement {
+  font-family: "Jetbrains Mono", monospace !important;
+  font-weight: 300 !important;
+}

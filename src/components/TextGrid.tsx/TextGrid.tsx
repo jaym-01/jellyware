@@ -1,42 +1,56 @@
-import styles from "@/styles/components/textgrid.module.scss";
+"use client";
 
-export default function TextGrid() {
-  let vals: number[] = [];
-  for (let i = 0; i < 30; i++) {
-    vals.push(i);
-  }
+import "@/styles/components/textgrid.css";
+import CodeMirror from "@uiw/react-codemirror";
+import { createTheme } from "@uiw/codemirror-themes";
+import { tags as t } from "@lezer/highlight";
+import { EditorView } from "@uiw/react-codemirror";
 
+const theme = createTheme({
+  theme: "dark",
+  settings: {
+    background: "#282c34cc",
+    backgroundImage: "",
+    foreground: "#ffffff",
+    caret: "#ffffff",
+    selection: "#036dd626",
+    selectionMatch: "#036dd626",
+    lineHighlight: "#8a91991a",
+    gutterBackground: "#282c34cc",
+    gutterForeground: "#8a919966",
+  },
+  styles: [
+    { tag: t.comment, color: "#ffffff" },
+    { tag: t.variableName, color: "#ffffff" },
+    { tag: [t.string, t.special(t.brace)], color: "#ffffff" },
+    { tag: t.number, color: "#ffffff" },
+    { tag: t.bool, color: "#ffffff" },
+    { tag: t.null, color: "#ffffff" },
+    { tag: t.keyword, color: "#ffffff" },
+    { tag: t.operator, color: "#ffffff" },
+    { tag: t.className, color: "#ffffff" },
+    { tag: t.definition(t.typeName), color: "#ffffff" },
+    { tag: t.typeName, color: "#ffffff" },
+    { tag: t.angleBracket, color: "#ffffff" },
+    { tag: t.tagName, color: "#ffffff" },
+    { tag: t.attributeName, color: "#ffffff" },
+  ],
+});
+
+export default function TextGrid({ text }: { text: string }) {
   return (
-    <div className={styles.container}>
-      <div className={styles.baseCols}>
-        {vals.map((val) => (
-          <p
-            key={val}
-            style={{
-              padding: "0",
-            }}
-          >
-            {val}
-          </p>
-        ))}
-      </div>
-      <div className={styles.baseCols}>
-        {vals.map((val) => (
-          <p
-            key={val}
-            style={{
-              padding: "0",
-            }}
-          >
-            {val}
-          </p>
-        ))}
-      </div>
-      <div className={styles.highlightWrapper}>
-        {vals.map((val) => (
-          <div key={val} className={styles.highlight}></div>
-        ))}
-      </div>
-    </div>
+    <CodeMirror
+      style={{
+        fontSize: 18,
+        textWrap: "wrap",
+      }}
+      value={text}
+      width="100%"
+      minHeight="40vh"
+      readOnly
+      editable={false}
+      theme={theme}
+      extensions={[EditorView.lineWrapping]}
+    />
   );
 }

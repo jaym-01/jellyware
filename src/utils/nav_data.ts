@@ -10,10 +10,10 @@ export const navData: {
     title: "about me",
     link: "/#aboutme",
   },
-  {
-    title: "projects[]",
-    link: "/#projects",
-  },
+  // {
+  //   title: "projects[]",
+  //   link: "/#projects",
+  // },
   {
     title: "github",
     link: "https://github.com/jaym-01",
