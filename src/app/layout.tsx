@@ -3,6 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import styles from "@/styles/global.module.scss";
 import "@/styles/global.css";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const font = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${font.className} ${styles.body}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

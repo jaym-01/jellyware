@@ -1,0 +1,33 @@
+@use "../variables.module" as *;
+
+.footerWrapper {
+  padding: 30px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  background-color: $primaryColor;
+  padding: 30px;
+}
+
+.f {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.f1 {
+  @extend .f;
+}
+
+.f2 {
+  @extend .f;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.ytLink {
+  color: #fff;
+}
