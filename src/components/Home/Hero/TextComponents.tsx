@@ -19,13 +19,11 @@ export function IntroText() {
   }, [index]);
 
   return (
-    <div className={styles.lineContainer}>
-      <Typing text={displayText[textNum]} index={index} setIndex={setIndex} />
-    </div>
+    <Typing text={displayText[textNum]} index={index} setIndex={setIndex} />
   );
 }
 
-const typingSpeed: number = 150;
+const typingSpeed: number = 200;
 const transitionDelay = "0.1s";
 const clearText = "clear";
 
@@ -39,7 +37,7 @@ export function Typing({
   index: number;
 }) {
   useEffect(() => {
-    const interval = setInterval(
+    const timeId = setTimeout(
       () => {
         setIndex(
           (prev) => (prev + 1) % (text.command.length + 1 + clearText.length)
@@ -53,7 +51,7 @@ export function Typing({
         ? typingSpeed + 100
         : typingSpeed
     );
-    return () => clearInterval(interval);
+    return () => clearTimeout(timeId);
   }, [index]);
 
   const outputStyle = {
@@ -62,29 +60,35 @@ export function Typing({
   };
 
   return (
-    <div>
-      <div className={styles.lineContainer}>
+    <>
+      <p className={styles.line}>
         <BashPrompt />
         <span>
-          {text.command.slice(0, Math.min(index, text.command.length))}
+          {text.command
+            .replace(" ", "\u00A0")
+            .slice(0, Math.min(index, text.command.length))}
         </span>
-        <div
+        <span
           className={index === 0 ? styles.cursorAnimation : styles.cursor}
           style={{
             opacity: index >= text.command.length ? 0 : 1,
             transitionDelay: "0.3s",
           }}
-        ></div>
-      </div>
-      <p style={outputStyle}>{text.output}</p>
-      <div style={outputStyle} className={styles.lineContainer}>
+        >
+          &nbsp;
+        </span>
+      </p>
+      <p style={outputStyle} className={styles.line}>
+        {text.output}
+      </p>
+      <p style={outputStyle} className={styles.line}>
         <BashPrompt />
         {index > text.command.length && (
           <span>{clearText.slice(0, index - text.command.length)}</span>
         )}
-        <div className={styles.cursorAnimation}></div>
-      </div>
-    </div>
+        <span className={styles.cursorAnimation}>&nbsp;</span>
+      </p>
+    </>
   );
 }
 

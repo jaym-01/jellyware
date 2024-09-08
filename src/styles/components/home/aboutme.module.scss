@@ -1,20 +1,16 @@
 @use "../../variables.module" as *;
 
 .tgWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  // $padding-x: 10px;
-  // padding-left: 10px;
-  // padding-right: $padding-x;
+  height: 70vh;
+  padding: 30px;
 }
 
 .tgContainer {
+  width: 100%;
   padding: 5px;
   background-color: $primaryColor;
   display: flex;
   flex-direction: column;
-  width: 80vw;
 }
 
 .textTitle {

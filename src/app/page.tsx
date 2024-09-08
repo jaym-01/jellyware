@@ -4,10 +4,10 @@ import AboutMe from "../components/Home/AboutMe/AboutMe";
 export default function Home() {
   return (
     <main>
-      <section style={{ height: "80vh" }}>
+      <section>
         <Hero />
       </section>
-      <section style={{ height: "80vh" }} id="aboutme">
+      <section id="aboutme">
         <AboutMe />
       </section>
     </main>

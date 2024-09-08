@@ -2,18 +2,14 @@
 
 .headerWrapper {
   z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 30px;
+  height: 162px;
   position: sticky;
   top: 0;
 }
 
 .headerComp {
-  z-index: 10;
   background-color: $primaryColor;
-  width: 100%;
   $padding-y: 5px;
   padding-top: $padding-y;
   padding-bottom: $padding-y;

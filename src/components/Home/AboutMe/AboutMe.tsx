@@ -9,7 +9,6 @@ Languages/Frameworks I've used:
 (proficient)
 - Typescript
 - React.js
-- React.js
 - Next.js
 - Python
 - Tailwind CSS
