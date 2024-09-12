@@ -1,0 +1,35 @@
+@use "../../variables.module" as *;
+
+.wrapper {
+  padding: 30px;
+}
+
+.container {
+  background-color: $primaryColor;
+  padding: 30px;
+}
+
+.container h2 {
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+$opacity: 0.3;
+.projectBox {
+  width: max;
+  background-color: #1c2128;
+  padding: 20px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.projectBox:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}

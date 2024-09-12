@@ -9,7 +9,7 @@ const font = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "jellyware",
-  description: "Jay's website !!!",
+  description: "Jay's website!!!",
 };
 
 export default function RootLayout({

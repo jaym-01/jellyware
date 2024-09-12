@@ -36,6 +36,7 @@ export default function Header() {
               navLink.link[0] === "/" ? (
                 <div key={i}>
                   <Link
+                    onClick={() => setOpen(false)}
                     href={navLink.link}
                     className={styles.navLink}
                     {...(navLink.link === "/cv" ? { target: "_blank" } : {})}
@@ -45,6 +46,7 @@ export default function Header() {
                 </div>
               ) : (
                 <a
+                  onClick={() => setOpen(false)}
                   className={styles.navLink}
                   href={navLink.link}
                   key={i}
