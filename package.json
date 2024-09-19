@@ -13,7 +13,8 @@
     "@uiw/codemirror-themes": "^4.23.0",
     "@uiw/react-codemirror": "^4.23.0",
     "framer-motion": "^11.3.30",
-    "next": "14.2.5",
+    "mongodb": "^6.9.0",
+    "next": "^14.2.12",
     "react": "^18",
     "react-dom": "^18"
   },
