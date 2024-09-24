@@ -5,6 +5,8 @@ const text = `I'm currently in my 3rd year studying Computer Engineering (Electr
 
 So far, I've achieved a First and Dean's list in my 1st and 2nd year.
 
+I previously worked at OncoFlow as a Full Stack Engineer, developing their initial product and company site.
+
 Languages/Frameworks I've used:
 (proficient)
 - Typescript
@@ -30,11 +32,9 @@ I've also deployed full-stack apps and backends to AWS using App runner and EC2.
 
 export default function AboutMe() {
   return (
-    <div className={styles.tgWrapper}>
-      <div className={styles.tgContainer}>
-        <h2 className={styles.textTitle}>about_me.txt</h2>
-        <TextGrid text={text} />
-      </div>
+    <div className={styles.tgContainer}>
+      <h2 className={styles.textTitle}>about_me</h2>
+      <TextGrid text={text} />
     </div>
   );
 }

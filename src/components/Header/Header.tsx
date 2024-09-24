@@ -11,7 +11,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1150) {
+      if (window.innerWidth > 1250) {
         setSmallScreen(false);
         setOpen(false);
       } else setSmallScreen(true);

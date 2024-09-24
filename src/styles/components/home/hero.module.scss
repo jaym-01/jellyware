@@ -1,15 +1,13 @@
 @use "../../variables.module" as *;
 
 .heroWrapper {
-  height: 150vh;
+  height: 70vh;
   padding: 30px;
-  position: relative;
 }
 
 .introCont {
-  position: sticky;
-  top: 250px;
-  background-color: $primaryColor;
+  background-color: #1c2128;
+  border-radius: $rad;
   padding: 40px;
   height: 55vh;
   text-wrap: wrap;
