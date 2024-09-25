@@ -52,7 +52,7 @@ export const projects: Project[] = [
     img: "riscv.png",
     description: [
       "Designed and implemented the hardware for pipelining the CPU",
-      "Designed and implemented a hazard unit that could stall and flush instructions, and pass data to previous stages to prevent stalls",
+      "Designed and implemented a hazard unit that could stall, flush instructions, and pass data to previous stages to prevent stalls",
       "Wrote test benches in C++ to run programs on the CPU",
     ],
   },

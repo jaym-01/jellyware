@@ -1,6 +1,7 @@
 import styles from "@/styles/components/home/projects.module.scss";
 import { Project, projects } from "./project_data";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
@@ -8,7 +9,23 @@ export default function Projects() {
       <h2>projects</h2>
       <div className={styles.projectGrid}>
         {projects.map((project, i) => (
-          <ProjectBox key={i} project={project} />
+          <motion.div
+            key={i}
+            initial={{
+              opacity: 0,
+              translateX: -100,
+            }}
+            whileInView={{
+              opacity: 1,
+              translateX: 0,
+            }}
+            transition={{
+              duration: 0.3 * ((i + 2) / 2),
+              ease: "easeInOut",
+            }}
+          >
+            <ProjectBox project={project} />
+          </motion.div>
         ))}
       </div>
     </div>
