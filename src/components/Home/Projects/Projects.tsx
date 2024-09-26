@@ -23,6 +23,9 @@ export default function Projects() {
               duration: 0.3 * ((i + 2) / 2),
               ease: "easeInOut",
             }}
+            style={{
+              display: "flex",
+            }}
           >
             <ProjectBox project={project} />
           </motion.div>
@@ -35,21 +38,20 @@ export default function Projects() {
 function ProjectBox({ project }: { project: Project }) {
   return (
     <div className={styles.projectBox}>
+      <h3>{project.title}</h3>
       <div className={styles.imgWrapper}>
         <Image
           src={`/projects/${project.img}`}
           alt=""
-          height={1000}
           width={1000}
+          height={1000}
           style={{
+            height: "100%",
             width: "auto",
-            height: "280px",
             borderRadius: "10px",
           }}
         />
       </div>
-
-      <h3>{project.title}</h3>
       <ul>
         {project.description.map((txt, i) => (
           <li key={i}>{txt}</li>
@@ -63,13 +65,11 @@ function ProjectBox({ project }: { project: Project }) {
           </a>
         )}
         {project.live_link && (
-          <a
-            href={project.src}
-            target="_blank"
-            style={{ flexGrow: "1", textAlign: "end" }}
-          >
-            View Project Live
-          </a>
+          <div style={{ flexGrow: "1", textAlign: "end" }}>
+            <a href={project.live_link} target="_blank">
+              View Project Live
+            </a>
+          </div>
         )}
       </div>
     </div>

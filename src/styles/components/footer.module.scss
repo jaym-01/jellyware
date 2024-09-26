@@ -32,3 +32,18 @@
 .ytLink {
   color: #fff;
 }
+
+@media screen and (max-width: $smallScreenThreshold) {
+  .footerWrapper {
+    padding: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .f2 {
+    justify-content: flex-start;
+  }
+}

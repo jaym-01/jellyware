@@ -37,7 +37,6 @@ export const projects: Project[] = [
       "Implemented gradient descent to update the weight and reduce the loss",
     ],
     src: "https://github.com/jaym-01/ml_learning/tree/master/micrograd",
-    live_link: "test",
   },
   {
     title: "C90 to RISC V assembly - C++",

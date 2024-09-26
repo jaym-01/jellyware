@@ -1,0 +1,11 @@
+@use "../../variables.module.scss" as *;
+
+.section {
+  padding: 30px;
+}
+
+@media screen and (max-width: $smallScreenThreshold) {
+  .section {
+    padding: 10px;
+  }
+}

@@ -5,6 +5,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { createTheme } from "@uiw/codemirror-themes";
 import { tags as t } from "@lezer/highlight";
 import { EditorView } from "@uiw/react-codemirror";
+import styles from "@/styles/components/home/aboutme.module.scss";
 
 const theme = createTheme({
   theme: "dark",
@@ -40,10 +41,10 @@ const theme = createTheme({
 export default function TextGrid({ text }: { text: string }) {
   return (
     <CodeMirror
-      style={{
-        fontSize: 18,
-        textWrap: "wrap",
-      }}
+      className={styles.text}
+      // style={{
+      //   fontSize: 18,
+      // }}
       value={text}
       width="100%"
       minHeight="40vh"

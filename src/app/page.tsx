@@ -2,15 +2,10 @@
 
 import Hero from "@/components/Home/Hero/Hero";
 import AboutMe from "../components/Home/AboutMe/AboutMe";
-import {
-  motion,
-  useSpring,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import Projects from "@/components/Home/Projects/Projects";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import styles from "@/styles/components/home/page.module.scss";
 
 const CONTENTS = [
   { id: "hero", component: <Hero key={0} /> },
@@ -28,15 +23,17 @@ export default function Home() {
         display: "flex",
         gap: "25vh",
         flexDirection: "column",
+        paddingBottom: "15vh",
       }}
     >
       {CONTENTS.map((c, i) => {
         return (
           <motion.section
             key={i}
+            className={styles.section}
             id={c.id}
             style={{
-              padding: 30,
+              // padding: 30,
               display: "flex",
               justifyContent: "center",
             }}
@@ -51,7 +48,6 @@ export default function Home() {
             }}
             viewport={{
               root: containerRef,
-              amount: 0.1,
             }}
           >
             <div

@@ -22,7 +22,7 @@
 .line {
   word-wrap: break-word;
   overflow-wrap: break-word;
-  max-width: 70vw;
+  max-width: 80vw;
 }
 
 .line span {
@@ -44,6 +44,18 @@
   display: flex;
   flex-direction: row;
   height: fit-content;
+}
+
+@media screen and (max-width: $smallScreenThreshold) {
+  .introCont {
+    padding: 20px;
+  }
+
+  .introCont * {
+    color: white;
+    font-size: 15px;
+    text-wrap: wrap;
+  }
 }
 
 @media screen and (min-width: $smallScreenThreshold) {

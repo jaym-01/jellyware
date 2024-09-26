@@ -25,27 +25,10 @@
 }
 
 .titleWrapper {
-  display: flex;
-  flex-direction: row;
   height: min-content;
   width: fit-content;
-  gap: 2px;
   color: white;
   text-decoration: none;
-}
-
-.cursorWrapper {
-  flex: 1;
-  width: 20px;
-  padding: 20px;
-  padding-left: 0px;
-}
-
-.cursor {
-  height: 100%;
-  width: 20px;
-  background-color: white;
-  animation: $blinking-animation;
 }
 
 .nav {
@@ -75,9 +58,7 @@
   flex: 1;
   width: 100%;
   display: flex;
-  $padding-y: 20px;
-  padding-top: $padding-y;
-  padding-bottom: $padding-y;
+  padding-bottom: 20px;
   justify-content: flex-start;
   align-items: center;
 }
@@ -136,5 +117,11 @@
   .headerComp {
     display: flex;
     flex-direction: row;
+  }
+}
+
+@media screen and (max-width: $smallScreenThreshold) {
+  .headerWrapper {
+    padding: 10px;
   }
 }
