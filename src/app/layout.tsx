@@ -4,6 +4,7 @@ import styles from "@/styles/global.module.scss";
 import "@/styles/global.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import Cursor from "../components/Cursor/Cursor";
 
 const font = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Cursor />
       </body>
     </html>
   );
