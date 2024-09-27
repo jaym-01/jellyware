@@ -1,5 +1,5 @@
 import styles from "@/styles/components/home/aboutme.module.scss";
-import TextGrid from "@/components/TextGrid.tsx/TextGrid";
+import TextGrid from "@/components/TextGrid/TextGrid";
 
 const text = `I'm currently in my 3rd year studying Computer Engineering (Electronic and Information Engineering) at Imperial College London.
 

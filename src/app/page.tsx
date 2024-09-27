@@ -21,7 +21,7 @@ export default function Home() {
       ref={containerRef}
       style={{
         display: "flex",
-        gap: "25vh",
+        gap: "15vh",
         flexDirection: "column",
         paddingBottom: "15vh",
       }}
@@ -33,7 +33,7 @@ export default function Home() {
             className={styles.section}
             id={c.id}
             style={{
-              // padding: 30,
+              paddingTop: 170,
               display: "flex",
               justifyContent: "center",
             }}

@@ -48,7 +48,7 @@ export default function TextGrid({ text }: { text: string }) {
       value={text}
       width="100%"
       minHeight="40vh"
-      readOnly
+      readOnly={true}
       editable={false}
       theme={theme}
       extensions={[EditorView.lineWrapping]}

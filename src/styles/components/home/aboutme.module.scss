@@ -18,6 +18,11 @@
 .text {
   font-size: 18px;
 }
+
+.text:focus {
+  outline: none;
+  border: none;
+}
 @media screen and (max-width: $smallScreenThreshold) {
   .tgContainer {
     padding: 5px;

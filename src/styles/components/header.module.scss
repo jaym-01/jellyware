@@ -29,6 +29,7 @@
   width: fit-content;
   color: white;
   text-decoration: none;
+  text-wrap: nowrap;
 }
 
 .nav {
@@ -117,6 +118,7 @@
   .headerComp {
     display: flex;
     flex-direction: row;
+    gap: 60px;
   }
 }
 
