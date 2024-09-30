@@ -55,6 +55,7 @@ export const projects: Project[] = [
       "Designed and implemented a hazard unit that could stall, flush instructions, and pass data to previous stages to prevent stalls",
       "Wrote test benches in C++ to run programs on the CPU",
     ],
+    src: "https://github.com/jaym-01/RISCVCPU",
   },
   {
     title: "mini grid project",
