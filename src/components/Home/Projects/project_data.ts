@@ -45,6 +45,7 @@ export const projects: Project[] = [
       "Achieved 89% - passing 179 out of 201 tests",
       "Added support for: chars, ints, floats (IEEE 754), arrays, pointers, for, while & do while loops, if statements, switch statements, functions, strings, typedef keyword, arithmetic (pre-increment operator, post-increment, etc.), constants, local & global variables (including correct scoping), enums, sizeof",
     ],
+    src: "https://github.com/jaym-01/C90ToRISCV",
   },
   {
     title: "RISC V 32I Pipelined CPU - System Verilog & C++",
