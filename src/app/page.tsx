@@ -4,13 +4,14 @@ import Hero from "@/components/Home/Hero/Hero";
 import AboutMe from "../components/Home/AboutMe/AboutMe";
 import { motion } from "framer-motion";
 import Projects from "@/components/Home/Projects/Projects";
-import { useRef } from "react";
+import { ReactNode, RefObject, useRef } from "react";
 import styles from "@/styles/components/home/page.module.scss";
+import { SectionProps } from "@/utils/types";
 
 const CONTENTS = [
-  { id: "hero", component: <Hero key={0} /> },
-  { id: "aboutme", component: <AboutMe key={1} /> },
-  { id: "projects", component: <Projects key={2} /> },
+  { id: "hero", component: Hero },
+  { id: "aboutme", component: AboutMe },
+  { id: "projects", component: Projects },
 ];
 
 export default function Home() {
@@ -26,41 +27,61 @@ export default function Home() {
         paddingBottom: "15vh",
       }}
     >
-      {CONTENTS.map((c, i) => {
-        return (
-          <motion.section
-            key={i}
-            className={styles.section}
-            id={c.id}
-            style={{
-              paddingTop: 170,
-              display: "flex",
-              justifyContent: "center",
-            }}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              transition: {
-                duration: Math.min(0.3 * (i + 1), 0.7),
-                ease: "easeInOut",
-              },
-            }}
-            viewport={{
-              root: containerRef,
-            }}
-          >
-            <div
-              style={{
-                width: "100%",
-                maxWidth: 1500,
-              }}
-            >
-              {c.component}
-            </div>
-          </motion.section>
-        );
-      })}
+      {CONTENTS.map((c, i) => (
+        <PageSection
+          key={i}
+          parentRef={containerRef}
+          Component={c.component}
+          i={i}
+        />
+      ))}
     </main>
+  );
+}
+
+function PageSection({
+  parentRef,
+  Component,
+  i,
+  ...props
+}: {
+  parentRef: RefObject<HTMLElement | null>;
+  Component: ({ parentRef, ...props }: SectionProps) => JSX.Element;
+  i: number;
+}) {
+  const curRef = useRef(null);
+
+  return (
+    <motion.section
+      {...props}
+      ref={curRef}
+      className={styles.section}
+      style={{
+        paddingTop: 170,
+        display: "flex",
+        justifyContent: "center",
+      }}
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+      }}
+      viewport={{
+        root: parentRef,
+      }}
+      transition={{
+        duration: Math.min(0.3 * (i + 1), 0.7),
+        ease: "easeInOut",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: 1500,
+        }}
+      >
+        {<Component key={i} parentRef={curRef}></Component>}
+      </div>
+    </motion.section>
   );
 }

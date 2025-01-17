@@ -2,10 +2,11 @@ import styles from "@/styles/components/home/projects.module.scss";
 import { Project, projects } from "./project_data";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { SectionProps } from "@/utils/types";
 
-export default function Projects() {
+export default function Projects({ parentRef, ...props }: SectionProps) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} {...props}>
       <h2>projects</h2>
       <div className={styles.projectGrid}>
         {projects.map((project, i) => (
@@ -13,11 +14,13 @@ export default function Projects() {
             key={i}
             initial={{
               opacity: 0,
-              translateX: -100,
+              translateX: -30,
+              translateY: -30,
             }}
             whileInView={{
               opacity: 1,
               translateX: 0,
+              translateY: 0,
             }}
             transition={{
               duration: 0.3 * ((i + 2) / 2),
@@ -25,6 +28,9 @@ export default function Projects() {
             }}
             style={{
               display: "flex",
+            }}
+            viewport={{
+              root: parentRef,
             }}
           >
             <ProjectBox project={project} />
