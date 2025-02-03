@@ -1,19 +1,14 @@
 @use "../../variables.module" as *;
 
-.heroWrapper {
-  height: 70vh;
-  padding: 30px;
-}
-
-.introCont {
+.terminal {
   background-color: #1c2128;
   border-radius: $rad;
   padding: 40px;
-  height: 35vh;
+  height: 40vh;
   text-wrap: wrap;
 }
 
-.introCont * {
+.terminal * {
   color: white;
   font-size: 20px;
   text-wrap: wrap;
@@ -47,11 +42,11 @@
 }
 
 @media screen and (max-width: $smallScreenThreshold) {
-  .introCont {
+  .terminal {
     padding: 20px;
   }
 
-  .introCont * {
+  .terminal * {
     color: white;
     font-size: 15px;
     text-wrap: wrap;
@@ -59,7 +54,7 @@
 }
 
 @media screen and (min-width: $smallScreenThreshold) {
-  .introCont {
-    height: 30vh;
+  .terminal {
+    height: 35vh;
   }
 }
