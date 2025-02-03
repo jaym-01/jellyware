@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, use } from "react";
 import styles from "@/styles/components/home/terminal.module.scss";
 
 const TYPING_SPEED = 130;
@@ -12,23 +12,26 @@ export default function Typer({
   text: string;
   handleTextComplete: () => void;
 }) {
+  const intervalIdRef = useRef<NodeJS.Timeout | null>(null);
+
   const [ti, setTi] = useState(0);
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTi((prevTi) => {
-        if (prevTi < text.length) return prevTi + 1;
-        else {
-          clearInterval(intervalId);
-          handleTextComplete();
-        }
-        return prevTi;
-      });
+    intervalIdRef.current = setInterval(() => {
+      console.log("in interval");
+      setTi((prevTi) => prevTi + 1);
     }, TYPING_SPEED);
 
     return () => {
-      if (ti < text.length) clearInterval(intervalId);
+      if (intervalIdRef.current) clearInterval(intervalIdRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (ti >= text.length && intervalIdRef.current) {
+      clearInterval(intervalIdRef.current);
+      handleTextComplete();
+    }
+  }, [ti]);
 
   return (
     <span>

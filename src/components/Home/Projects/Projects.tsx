@@ -1,7 +1,7 @@
 import styles from "@/styles/components/home/projects.module.scss";
 import { Project, projects } from "./project_data";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { SectionProps } from "@/utils/types";
 
 export default function Projects({ parentRef, ...props }: SectionProps) {

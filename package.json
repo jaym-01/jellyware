@@ -12,18 +12,18 @@
     "@codemirror/view": "^6.33.0",
     "@uiw/codemirror-themes": "^4.23.0",
     "@uiw/react-codemirror": "^4.23.0",
-    "framer-motion": "^11.3.30",
     "mongodb": "^6.9.0",
-    "next": "^14.2.12",
-    "react": "^18",
-    "react-dom": "^18"
+    "motion": "^12.0.11",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.5",
+    "eslint-config-next": "^15.1.6",
     "sass": "^1.77.8",
     "typescript": "^5"
   }

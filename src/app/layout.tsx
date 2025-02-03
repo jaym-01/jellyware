@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={styles.html} lang="en">
+    <html className={styles.html} lang="en" suppressHydrationWarning>
       <body className={`${font.className} ${styles.body}`}>
         <Header />
         {children}

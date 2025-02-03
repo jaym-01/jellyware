@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "@/styles/components/header.module.scss";
 import { navData } from "@/utils/nav_data";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -24,7 +25,19 @@ export default function Header() {
   }, []);
 
   return (
-    <div className={styles.headerWrapper}>
+    <motion.div
+      className={styles.headerWrapper}
+      initial={{
+        y: "-100%",
+      }}
+      animate={{
+        y: 0,
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+    >
       <header className={styles.headerComp}>
         <Link
           href={`${navData[0].link}/#terminal`}
@@ -72,6 +85,6 @@ export default function Header() {
           </span>
         </div>
       </header>
-    </div>
+    </motion.div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { Terminal } from "@/components/Home/Hero/Terminal";
 import AboutMe from "../components/Home/AboutMe/AboutMe";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Projects from "@/components/Home/Projects/Projects";
 import { ReactNode, RefObject, useRef } from "react";
 import styles from "@/styles/components/home/page.module.scss";
