@@ -27,7 +27,7 @@ export default function Header() {
     <div className={styles.headerWrapper}>
       <header className={styles.headerComp}>
         <Link
-          href={navData[0].link}
+          href={`${navData[0].link}/#terminal`}
           className={styles.titleWrapper}
           onClick={() => setOpen(false)}
         >

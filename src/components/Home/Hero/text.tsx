@@ -10,7 +10,7 @@ export const displayText: ReadTextProps[] = [
   {
     command: "cat intro.txt",
     output: () => <span>Hi, I{"'"}m Jay!</span>,
-    duration: 3000,
+    duration: 2000,
   },
   {
     command: "cat whoami.txt",
@@ -26,6 +26,6 @@ export const displayText: ReadTextProps[] = [
         You can find out more about my skills below vvv
       </span>
     ),
-    duration: 6000,
+    duration: 5000,
   },
 ];

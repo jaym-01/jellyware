@@ -9,7 +9,7 @@ import styles from "@/styles/components/home/page.module.scss";
 import { SectionProps } from "@/utils/types";
 
 const CONTENTS = [
-  { id: "hero", component: Terminal },
+  { id: "terminal", component: Terminal },
   { id: "aboutme", component: AboutMe },
   { id: "projects", component: Projects },
 ];
@@ -32,7 +32,7 @@ export default function Home() {
           key={i}
           parentRef={containerRef}
           Component={c.component}
-          i={i}
+          id={c.id}
         />
       ))}
     </main>
@@ -40,20 +40,21 @@ export default function Home() {
 }
 
 function PageSection({
+  id,
   parentRef,
   Component,
-  i,
   ...props
 }: {
+  id: string;
   parentRef: RefObject<HTMLElement | null>;
   Component: ({ parentRef, ...props }: SectionProps) => JSX.Element;
-  i: number;
 }) {
   const curRef = useRef(null);
 
   return (
     <motion.section
       {...props}
+      id={id}
       ref={curRef}
       className={styles.section}
       style={{
@@ -61,16 +62,17 @@ function PageSection({
         display: "flex",
         justifyContent: "center",
       }}
-      initial={{ opacity: 0, x: -30 }}
+      initial={{ opacity: 0, x: -50, y: -50 }}
       whileInView={{
         opacity: 1,
         x: 0,
+        y: 0,
       }}
       viewport={{
         root: parentRef,
       }}
       transition={{
-        duration: Math.min(0.3 * (i + 1), 0.7),
+        duration: 0.4,
         ease: "easeInOut",
       }}
     >
@@ -80,7 +82,7 @@ function PageSection({
           maxWidth: 1500,
         }}
       >
-        {<Component key={i} parentRef={curRef}></Component>}
+        {<Component parentRef={curRef}></Component>}
       </div>
     </motion.section>
   );

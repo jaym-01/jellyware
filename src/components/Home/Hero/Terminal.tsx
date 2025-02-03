@@ -5,8 +5,6 @@ import { useState } from "react";
 import { ReadTextProps, displayText } from "./text";
 import Typer from "./Typer";
 
-const OUTPUT_DURATION = 5000;
-
 export function Terminal() {
   const [textNum, setTextNum] = useState<number>(0);
 
@@ -34,7 +32,7 @@ export function TerminalAnimation({
 
   const handleCommandComplete = function () {
     setShowOutput(true);
-    setTimeout(() => setShowClear(true), OUTPUT_DURATION);
+    setTimeout(() => setShowClear(true), text.duration);
   };
 
   return (
