@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import styles from "@/styles/global.module.scss";
 import "@/styles/global.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
-const font = JetBrains_Mono({ subsets: ["latin"] });
+// const font = JetBrains_Mono({ subsets: ["latin"] });
+
+const font = localFont({
+  src: "MonaspaceNeonVarVF.ttf",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "jellyware",

@@ -17,7 +17,6 @@ export default function Typer({
   const [ti, setTi] = useState(0);
   useEffect(() => {
     intervalIdRef.current = setInterval(() => {
-      console.log("in interval");
       setTi((prevTi) => prevTi + 1);
     }, TYPING_SPEED);
 
