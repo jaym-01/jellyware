@@ -13,7 +13,10 @@ export function Terminal() {
       key={textNum}
       text={displayText[textNum]}
       handleComplete={() => {
-        setTextNum((prev) => (prev + 1) % displayText.length);
+        setTimeout(
+          () => setTextNum((prev) => (prev + 1) % displayText.length),
+          300
+        );
       }}
     />
   );
@@ -31,8 +34,10 @@ export function TerminalAnimation({
   const [showClear, setShowClear] = useState<boolean>(false);
 
   const handleCommandComplete = function () {
-    setShowOutput(true);
-    setTimeout(() => setShowClear(true), text.duration);
+    setTimeout(() => {
+      setShowOutput(true);
+      setTimeout(() => setShowClear(true), text.duration);
+    }, 300);
   };
 
   return (

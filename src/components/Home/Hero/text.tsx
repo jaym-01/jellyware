@@ -23,7 +23,7 @@ export const displayText: ReadTextProps[] = [
         I recently won IC HACK 2025
         <br />
         <br />
-        You can find out more about my skills below vvv
+        You can find out more about me below vvv
       </span>
     ),
     duration: 5000,
