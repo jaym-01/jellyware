@@ -60,7 +60,9 @@ function ProjectBox({ project }: { project: Project }) {
       </div>
       <ul>
         {project.description.map((txt, i) => (
-          <li key={i}>{txt}</li>
+          <li key={i} style={{ padding: 5 }}>
+            {txt}
+          </li>
         ))}
       </ul>
 
@@ -70,10 +72,10 @@ function ProjectBox({ project }: { project: Project }) {
             View Code
           </a>
         )}
-        {project.live_link && (
+        {project.extra_link && project.extra_link_text && (
           <div style={{ flexGrow: "1", textAlign: "end" }}>
-            <a href={project.live_link} target="_blank">
-              View Project Live
+            <a href={project.extra_link} target="_blank">
+              {project.extra_link_text}
             </a>
           </div>
         )}

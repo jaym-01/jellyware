@@ -3,10 +3,40 @@ export interface Project {
   img: string;
   description: string[];
   src?: string;
-  live_link?: string;
+  extra_link?: string;
+  extra_link_text?: string;
 }
 
 export const projects: Project[] = [
+  {
+    title: "VisuMath",
+    img: "visumath.png",
+    description: [
+      "This project won the research category of IC HACK 2025, Europe's largest student run hackathon!",
+      "This tool takes a math topic as input and generates a video (based on 3blue1brown videos) and interactive page.",
+      "I worked on the backend: the API server, video and meta data storage, and connecting the AI agent to an API.",
+      "Videos are stored on AWS S3 buckets, metadata is stored in dynamodb and video title are stored in a vector database for querying.",
+      "The backend consists of three layers: the API server (built with FastAPI), a Redis message queue, and a Celery worker.",
+      "This architecture allows the API server to remain responsive while long-running tasks are offloaded to a separate process - generating a video takes around 2-5mins.",
+    ],
+    src: "https://devpost.com/software/intellilearn-kjxv19?ref_content=user-portfolio&ref_feature=in_progress",
+    extra_link: "https://www.youtube.com/watch?v=y3tJCa_o4J0",
+    extra_link_text: "Watch the demo",
+  },
+  {
+    title: "Rx2Label",
+    img: "rx2label.png",
+    description: [
+      "Checks a picture of a doctors prescription against medical literature (it can read a doctors handwriting :))",
+      "Takes a valid prescription and generates a label for the medication",
+      "Built at Hack UK hosted by a16z with Mistals Pixtral model",
+      "I Built the entire frontend and backend using React.js, Typescript, Tailwind and Python FastAPI",
+      "Supabase is used for image storage",
+    ],
+    src: "https://github.com/MalikHarrisAhm/Rx2Label",
+    extra_link: "https://www.youtube.com/watch?v=yM-t-zbx8kA",
+    extra_link_text: "Watch the demo",
+  },
   {
     title: "This site",
     img: "site.png",
