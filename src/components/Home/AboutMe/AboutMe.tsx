@@ -30,11 +30,13 @@ I'm familiar with Git and Github, from using it in almost all of my projects.
 I've also deployed full-stack apps and backends to AWS using App runner and EC2.
 `;
 
-export default function AboutMe() {
+export default function AboutMe({ ...props }) {
   return (
-    <div className={styles.tgContainer}>
-      <h2 className={styles.textTitle}>about_me</h2>
-      <TextGrid text={text} />
+    <div className={styles.aboutMeWrapper} {...props}>
+      <div className={styles.tgContainer}>
+        <h2 className={styles.textTitle}>about_me</h2>
+        <TextGrid text={text} />
+      </div>
     </div>
   );
 }

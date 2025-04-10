@@ -5,20 +5,22 @@ import { useState } from "react";
 import { ReadTextProps, displayText } from "./text";
 import Typer from "./Typer";
 
-export function Terminal() {
+export function Terminal({ ...props }) {
   const [textNum, setTextNum] = useState<number>(0);
 
   return (
-    <TerminalAnimation
-      key={textNum}
-      text={displayText[textNum]}
-      handleComplete={() => {
-        setTimeout(
-          () => setTextNum((prev) => (prev + 1) % displayText.length),
-          300
-        );
-      }}
-    />
+    <div className={styles.terminalWrapper} {...props}>
+      <TerminalAnimation
+        key={textNum}
+        text={displayText[textNum]}
+        handleComplete={() => {
+          setTimeout(
+            () => setTextNum((prev) => (prev + 1) % displayText.length),
+            300
+          );
+        }}
+      />
+    </div>
   );
 }
 

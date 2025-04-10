@@ -2,8 +2,7 @@
 
 .headerWrapper {
   z-index: 10;
-  padding: $background-padding;
-  padding-bottom: 0px;
+  padding-top: $background-padding;
   background-color: $darkBackground;
   position: sticky;
   top: 0;
@@ -11,16 +10,18 @@
 
 .headerComp {
   border: 1px solid $border-color;
+  border-right: none;
+  border-left: none;
   // background-color: $primaryColor;
   border-radius: $rad;
   $padding-y: 5px;
   padding-top: $padding-y;
   padding-bottom: $padding-y;
-  $padding-x: 50px;
+  $padding-x: 50px + $background-padding;
   padding-left: $padding-x;
   padding-right: $padding-x;
   // box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(4.849999904632568px);
+  // backdrop-filter: blur(4.849999904632568px);
 
   display: flex;
   flex-direction: column;
@@ -126,6 +127,6 @@
 
 @media screen and (max-width: $smallScreenThreshold) {
   .headerWrapper {
-    padding: 10px;
+    padding-top: 10px;
   }
 }

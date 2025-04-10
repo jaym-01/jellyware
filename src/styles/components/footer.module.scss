@@ -1,15 +1,21 @@
 @use "../variables.module" as *;
 
 .footerWrapper {
-  padding: 30px;
+  padding-bottom: $background-padding;
 }
 
 .footer {
   display: flex;
   flex-direction: row;
-  background-color: $primaryColor;
+  // background-color: $primaryColor;
   border-radius: $rad;
-  padding: 30px;
+  $padding-x: 30px;
+  padding: $padding-x;
+  padding-left: $padding-x + $background-padding;
+  padding-right: $padding-x + $background-padding;
+  border: 1px solid $border-color;
+  border-right: none;
+  border-left: none;
 }
 
 .f {
@@ -35,7 +41,7 @@
 
 @media screen and (max-width: $smallScreenThreshold) {
   .footerWrapper {
-    padding: 10px;
+    padding-bottom: 10px;
   }
 
   .footer {

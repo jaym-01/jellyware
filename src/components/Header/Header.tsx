@@ -25,19 +25,7 @@ export default function Header() {
   }, []);
 
   return (
-    <motion.div
-      className={styles.headerWrapper}
-      initial={{
-        y: "-100%",
-      }}
-      animate={{
-        y: 0,
-      }}
-      transition={{
-        duration: 0.3,
-        ease: "easeInOut",
-      }}
-    >
+    <div className={styles.headerWrapper}>
       <header className={styles.headerComp}>
         <Link
           href={`${navData[0].link}/#terminal`}
@@ -85,6 +73,6 @@ export default function Header() {
           </span>
         </div>
       </header>
-    </motion.div>
+    </div>
   );
 }

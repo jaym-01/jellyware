@@ -10,14 +10,14 @@ import styles from "@/styles/components/home/aboutme.module.scss";
 const theme = createTheme({
   theme: "dark",
   settings: {
-    background: "#282c34cc",
+    background: "#181b23",
     backgroundImage: "",
     foreground: "#ffffff",
     caret: "#ffffff",
     selection: "#036dd626",
     selectionMatch: "#036dd626",
     lineHighlight: "#8a91991a",
-    gutterBackground: "#282c34cc",
+    gutterBackground: "#181b23",
     gutterForeground: "#8a919966",
   },
   styles: [

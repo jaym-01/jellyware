@@ -14,7 +14,7 @@ export default function Footer() {
           </a>
         </div>
         <div className={styles.f2}>
-          <p>© jellyware 2024</p>
+          <p>© jellyware 2025</p>
         </div>
       </footer>
     </div>

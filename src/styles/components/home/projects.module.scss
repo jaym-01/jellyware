@@ -1,7 +1,12 @@
 @use "../../variables.module" as *;
 
+.projectWrapper {
+  padding-left: $background-padding;
+  padding-right: $background-padding;
+}
+
 .container {
-  background-color: $primaryColor;
+  background-color: transparent;
   border-radius: $rad;
   padding: 30px;
 }
@@ -22,7 +27,7 @@ $opacity: 0.3;
   border-radius: $rad;
   width: auto;
   flex-grow: 1;
-  background-color: #1c2128;
+  background-color: $primaryColor;
   padding: 25px;
   box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
@@ -32,8 +37,8 @@ $opacity: 0.3;
 }
 
 .projectBox:hover {
-  transform: scale(1.02);
-  box-shadow: 2px 5px 10px 3px rgba(0, 0, 0, 0.2);
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
 .imgWrapper {

@@ -3,7 +3,7 @@ export const navData: {
   link: string;
 }[] = [
   {
-    title: "$ cd home",
+    title: "$ cd ~",
     link: "/",
   },
   {

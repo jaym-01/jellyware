@@ -1,11 +1,23 @@
 @use "../../variables.module" as *;
 
+.terminalWrapper {
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+
+  padding-left: $background-padding;
+  padding-right: $background-padding;
+}
+
 .terminal {
-  background-color: #1c2128;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  background-color: $primaryColor;
   border-radius: $rad;
   padding: 40px;
   height: 40vh;
   text-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .terminal * {

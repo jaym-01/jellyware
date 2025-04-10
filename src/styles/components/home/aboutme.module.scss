@@ -1,5 +1,13 @@
 @use "../../variables.module" as *;
 
+.aboutMeWrapper {
+  padding-left: $background-padding;
+  padding-right: $background-padding;
+
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
 .tgContainer {
   padding: 20px;
   background-color: $primaryColor;
@@ -7,6 +15,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  max-width: 1000px;
+  margin: 0 auto;
+
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
 }
 
 .textTitle {

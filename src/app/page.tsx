@@ -22,19 +22,17 @@ export default function Home() {
       ref={containerRef}
       style={{
         display: "flex",
-        gap: "15vh",
+        paddingTop: "15vh",
+        gap: "40vh",
         flexDirection: "column",
         paddingBottom: "15vh",
       }}
     >
-      {CONTENTS.map((c, i) => (
-        <PageSection
-          key={i}
-          parentRef={containerRef}
-          Component={c.component}
-          id={c.id}
-        />
-      ))}
+      <Terminal id="terminal" />
+
+      <AboutMe id="aboutme" />
+
+      <Projects parentRef={containerRef} id="projects" />
     </main>
   );
 }
@@ -62,7 +60,11 @@ function PageSection({
         display: "flex",
         justifyContent: "center",
       }}
-      initial={{ opacity: 0, x: -50, y: -50 }}
+      initial={{
+        opacity: 0,
+        //  x: -50,
+        //  y: -50
+      }}
       whileInView={{
         opacity: 1,
         x: 0,
@@ -72,7 +74,7 @@ function PageSection({
         root: parentRef,
       }}
       transition={{
-        duration: 0.4,
+        duration: 0.5,
         ease: "easeInOut",
       }}
     >
