@@ -2,14 +2,16 @@
 
 .headerWrapper {
   z-index: 10;
-  padding: 30px;
-  height: 162px;
+  padding: $background-padding;
+  padding-bottom: 0px;
+  background-color: $darkBackground;
   position: sticky;
   top: 0;
 }
 
 .headerComp {
-  background-color: $primaryColor;
+  border: 1px solid $border-color;
+  // background-color: $primaryColor;
   border-radius: $rad;
   $padding-y: 5px;
   padding-top: $padding-y;
@@ -17,7 +19,7 @@
   $padding-x: 50px;
   padding-left: $padding-x;
   padding-right: $padding-x;
-  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.15);
+  // box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(4.849999904632568px);
 
   display: flex;
