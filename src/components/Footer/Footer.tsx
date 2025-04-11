@@ -10,7 +10,7 @@ export default function Footer() {
             href="https://www.youtube.com/@jellyware-1"
             target="_blank"
           >
-            My YouTube Channel ;{")"}
+            my youtube channel ;{")"}
           </a>
         </div>
         <div className={styles.f2}>

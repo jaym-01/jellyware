@@ -69,6 +69,7 @@ function ProjectBox({ project }: { project: Project }) {
           style={{
             height: "100%",
             width: "auto",
+            maxWidth: "70vw",
             // borderRadius: "10px",
           }}
         />

@@ -25,7 +25,6 @@
 $opacity: 0.3;
 .projectBox {
   border-radius: $rad;
-  width: auto;
   flex-grow: 1;
   background-color: $primaryColor;
   padding: 25px;
@@ -69,7 +68,7 @@ $opacity: 0.3;
   }
 
   .projectBox {
-    padding: 12px;
+    padding: 5px;
   }
 
   .projectBox li {
