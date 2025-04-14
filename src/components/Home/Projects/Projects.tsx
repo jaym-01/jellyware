@@ -13,37 +13,29 @@ export default function Projects({
 }) {
   return (
     <div className={styles.projectWrapper}>
-      <div className={styles.container} {...props}>
-        <h2>projects</h2>
-        <div className={styles.projectGrid}>
-          {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              initial={{
-                opacity: 0,
-                // translateX: -30,
-                // translateY: -30,
-              }}
-              whileInView={{
-                opacity: 1,
-                // translateX: 0,
-                // translateY: 0,
-              }}
-              transition={{
-                duration: 0.3 * ((i + 2) / 2),
-                ease: "easeInOut",
-              }}
-              style={{
-                display: "flex",
-              }}
-              viewport={{
-                root: parentRef,
-              }}
-            >
-              <ProjectBox project={project} />
-            </motion.div>
-          ))}
-        </div>
+      <h2>projects</h2>
+      <div className={styles.projectGrid}>
+        {projects.map((project, i) => (
+          <motion.div
+            key={i}
+            className={styles.projectContainer}
+            initial={{
+              opacity: 0,
+            }}
+            whileInView={{
+              opacity: 1,
+            }}
+            transition={{
+              duration: 0.3 * ((i + 2) / 2),
+              ease: "easeInOut",
+            }}
+            viewport={{
+              root: parentRef,
+            }}
+          >
+            <ProjectBox project={project} />
+          </motion.div>
+        ))}
       </div>
     </div>
   );
@@ -70,7 +62,6 @@ function ProjectBox({ project }: { project: Project }) {
             height: "100%",
             width: "auto",
             maxWidth: "70vw",
-            // borderRadius: "10px",
           }}
         />
       </div>
