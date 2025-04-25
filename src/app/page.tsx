@@ -7,6 +7,7 @@ import Projects from "@/components/Home/Projects/Projects";
 import { ReactNode, RefObject, useRef } from "react";
 import styles from "@/styles/components/home/page.module.scss";
 import { SectionProps } from "@/utils/types";
+import Link from "next/link";
 
 const CONTENTS = [
   { id: "terminal", component: Terminal },
@@ -33,6 +34,15 @@ export default function Home() {
       <AboutMe id="aboutme" />
 
       <Projects parentRef={containerRef} id="projects" />
+
+      <div style={{ paddingLeft: 40, paddingRight: 40, textAlign: "center" }}>
+        <Link
+          href="/json-check"
+          style={{ color: "#fff", textDecoration: "underline" }}
+        >
+          Validate JSON text
+        </Link>
+      </div>
     </main>
   );
 }

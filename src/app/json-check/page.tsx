@@ -20,7 +20,7 @@ export default function JsonCheck() {
             try {
               JSON.parse(v);
               setError(null);
-            } catch (e) {
+            } catch (e: Error | any) {
               setError(e.message);
             }
           }}

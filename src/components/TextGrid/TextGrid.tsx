@@ -52,9 +52,9 @@ export default function TextGrid({
   return (
     <CodeMirror
       className={styles.text}
-      // style={{
-      //   fontSize: 18,
-      // }}
+      style={{
+        textAlign: "left",
+      }}
       value={text}
       width="100%"
       minHeight="40vh"

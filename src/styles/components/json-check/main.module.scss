@@ -1,6 +1,7 @@
 @use "../../variables.module" as *;
 
 .jContainer {
+  text-align: center;
   padding: $background-padding + 10px;
   min-height: 75vh;
   display: flex;
