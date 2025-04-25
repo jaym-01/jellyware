@@ -38,7 +38,17 @@ const theme = createTheme({
   ],
 });
 
-export default function TextGrid({ text }: { text: string }) {
+export default function TextGrid({
+  text,
+  handleChange,
+  readOnly = true,
+  editable = false,
+}: {
+  text: string;
+  handleChange?: (value: string) => void;
+  readOnly?: boolean;
+  editable?: boolean;
+}) {
   return (
     <CodeMirror
       className={styles.text}
@@ -48,10 +58,11 @@ export default function TextGrid({ text }: { text: string }) {
       value={text}
       width="100%"
       minHeight="40vh"
-      readOnly={true}
-      editable={false}
+      readOnly={readOnly}
+      editable={editable}
       theme={theme}
       extensions={[EditorView.lineWrapping]}
+      onChange={handleChange}
     />
   );
 }

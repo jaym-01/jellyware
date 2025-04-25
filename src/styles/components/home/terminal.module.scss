@@ -67,6 +67,7 @@
 
 @media screen and (min-width: $smallScreenThreshold) {
   .terminal {
-    height: 35vh;
+    // height: 35vh;
+    min-height: 400px;
   }
 }
