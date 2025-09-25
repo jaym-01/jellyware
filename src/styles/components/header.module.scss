@@ -1,51 +1,33 @@
 @use "../variables.module" as *;
 
-/**
- * Header Wrapper - Sticky positioning with zed.dev-inspired dividing lines
- * 
- * Design principles:
- * - Sticky positioning maintains header visibility during scroll
- * - Subtle dividing lines create visual separation without heaviness
- * - Dark background ensures header stands out from content
- * - High z-index ensures header stays above page content
- */
 .headerWrapper {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: $headerBackground;
-  @include header-divider("bottom"); // Thin line below header
-
-  // Ensure header appears above other sticky elements
+  background-color: $darkBackground;
   isolation: isolate;
+  margin: 0;
+  width: 100%;
+  padding-left: $background-padding;
+  padding-right: $background-padding;
+
+  @include header-divider("bottom");
 }
 
-/**
- * Main Header Element - Semantic container with accessibility
- * 
- * Layout principles:
- * - Minimal height following zed.dev proportions
- * - Clean background without unnecessary borders or shadows
- * - Flexible container to accommodate responsive behavior
- */
 .header {
   min-height: $header-height;
-  background-color: $headerBackground;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  @include header-divider("vertical");
+  background-color: $darkBackground;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-/**
- * Header Content Container - Grid-aligned content wrapper
- * 
- * Alignment principles:
- * - Max-width matches main content grid for visual consistency
- * - Responsive padding scales with viewport for optimal spacing
- * - Flexbox layout provides clean alignment between brand and navigation
- * - Content stays centered and properly proportioned across screen sizes
- */
 .headerContent {
-  @include content-container;
+  @include full-width-container;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -54,15 +36,6 @@
   padding-bottom: $header-padding-y;
 }
 
-/**
- * Brand/Logo Section - Clean typography following zed.dev proportions
- * 
- * Typography principles:
- * - Balanced font size that doesn't overwhelm the header
- * - Medium font weight for subtle emphasis
- * - Clean link styling without underlines
- * - Color maintains hierarchy and readability
- */
 .brand {
   display: flex;
   align-items: center;
@@ -83,17 +56,8 @@
   white-space: nowrap;
 }
 
-/**
- * Desktop Navigation - Horizontal layout for larger screens
- * 
- * Layout principles:
- * - Hidden on mobile, visible on desktop (responsive design)
- * - Horizontal layout with generous spacing between items
- * - Right-aligned to balance with left-aligned brand
- * - Clean typography matching zed.dev's navigation style
- */
 .desktopNav {
-  display: none; // Hidden by default (mobile-first)
+  display: none;
   align-items: center;
   gap: $spacing-2xl;
 
@@ -111,15 +75,6 @@
   @include nav-link-hover;
 }
 
-/**
- * Mobile Menu Toggle - Clean hamburger/close button
- * 
- * Interactive principles:
- * - Only visible on mobile screens
- * - Clear visual feedback for open/closed states
- * - Accessible button with proper ARIA attributes
- * - Minimal styling to match overall header aesthetic
- */
 .mobileMenuToggle {
   display: flex;
   align-items: center;
@@ -148,20 +103,12 @@
   }
 }
 
-/**
- * Mobile Navigation - Collapsible vertical menu
- * 
- * Mobile UX principles:
- * - Appears below header content when toggled
- * - Vertical layout with generous spacing for touch targets
- * - Subtle background to separate from main content
- * - Smooth interaction without heavy animations
- * - Proper spacing to prevent accidental taps
- */
 .mobileNav {
   @include header-divider("top"); // Subtle separator from header content
   background-color: rgba(0, 0, 0, 0.1);
-  padding: $spacing-lg $header-padding-x;
+  @include full-width-container;
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-lg;
   display: flex;
   flex-direction: column;
   gap: $spacing-lg;

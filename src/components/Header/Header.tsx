@@ -14,64 +14,39 @@ interface HeaderProps {
   className?: string;
 }
 
-/**
- * Header component inspired by zed.dev's minimal, sticky design
- * Features:
- * - Sticky positioning with dividing lines
- * - Content aligned to main grid system
- * - Responsive behavior that gracefully collapses
- * - Clean typography with balanced proportions
- * - Semantic HTML structure for accessibility
- */
 export default function Header({ className }: HeaderProps) {
-  // State for mobile menu toggle
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  // Track screen size for responsive behavior
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(true);
 
-  /**
-   * Handle window resize to determine mobile/desktop layout
-   * Automatically closes mobile menu when switching to desktop
-   */
   const handleResize = useCallback(() => {
-    const isNowMobile = window.innerWidth <= 950;
+    const isNowMobile = window.innerWidth <= 800;
     setIsMobileScreen(isNowMobile);
 
-    // Close mobile menu when switching to desktop
     if (!isNowMobile && isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
     }
   }, [isMobileMenuOpen]);
 
-  // Set up resize listener for responsive behavior
   useEffect(() => {
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
-  /**
-   * Close mobile menu when navigation occurs
-   */
   const handleNavClick = useCallback(() => {
     setIsMobileMenuOpen(false);
   }, []);
 
-  /**
-   * Toggle mobile menu state
-   */
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
   }, []);
 
-  // Extract logo/brand data and navigation items
   const [brandData, ...navigationItems] = navData;
 
   return (
     // Sticky header wrapper with dividing lines (zed.dev style)
     <div className={`${styles.headerWrapper} ${className || ""}`}>
       <header className={styles.header} role="banner">
-        {/* Content container aligned to main grid */}
         <div className={styles.headerContent}>
           {/* Brand/Logo section */}
           <Link

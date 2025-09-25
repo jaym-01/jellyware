@@ -1,8 +1,7 @@
 // Base colors
 $darkBackground: #1a1a1a;
 $primaryColor: #181b23;
-$headerBackground: #1a1a1a; // Zed-inspired darker header
-$border-color: #333333; // Subtle dividing lines
+$border-color: #444444; // Much lighter border for clear visibility
 $text-primary: #ffffff;
 $text-secondary: #a1a1a1;
 
@@ -41,11 +40,27 @@ $background-padding: 30px;
   @if $position == "bottom" or $position == "both" {
     border-bottom: $header-border-width solid $border-color;
   }
+  @if $position == "left" or $position == "both" {
+    border-left: $header-border-width solid $border-color;
+  }
+  @if $position == "right" or $position == "both" {
+    border-right: $header-border-width solid $border-color;
+  }
+  @if $position == "vertical" {
+    border-left: $header-border-width solid $border-color;
+    border-right: $header-border-width solid $border-color;
+  }
 }
 
 @mixin content-container {
   max-width: $header-max-width;
   margin: 0 auto;
+  padding-left: $header-padding-x;
+  padding-right: $header-padding-x;
+}
+
+@mixin full-width-container {
+  width: 100%;
   padding-left: $header-padding-x;
   padding-right: $header-padding-x;
 }
