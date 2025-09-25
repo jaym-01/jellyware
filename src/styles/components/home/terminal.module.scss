@@ -3,7 +3,7 @@
 .terminal {
   background-color: transparent;
   border-radius: 0;
-  padding: 40px;
+  padding: 8px 20px 20px 20px;
   height: auto;
   min-height: 300px;
   text-wrap: wrap;
@@ -13,7 +13,7 @@
 
 .terminal * {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   text-wrap: wrap;
 }
 
@@ -28,14 +28,16 @@
 }
 
 .cursor {
-  height: 22px;
-  width: 12px;
   background-color: white;
 }
 
 .cursorAnimation {
   @extend .cursor;
   animation: $blinking-animation;
+}
+
+.terminalOutput {
+  font-weight: 300;
 }
 
 .textWrapper {
@@ -46,12 +48,12 @@
 
 @media screen and (max-width: $smallScreenThreshold) {
   .terminal {
-    padding: 20px;
+    padding: 8px 20px 20px 20px;
   }
 
   .terminal * {
     color: white;
-    font-size: 15px;
+    font-size: 14px;
     text-wrap: wrap;
   }
 }

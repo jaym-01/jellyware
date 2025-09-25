@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "@/styles/components/home/terminal.module.scss";
 
 export interface ReadTextProps {
   command: string;
@@ -9,13 +10,15 @@ export interface ReadTextProps {
 export const displayText: ReadTextProps[] = [
   {
     command: "cat intro.txt",
-    output: () => <span>Hi, I{"'"}m Jay!</span>,
+    output: () => (
+      <span className={styles.terminalOutput}>Hi, I{"'"}m Jay!</span>
+    ),
     duration: 2000,
   },
   {
     command: "cat whoami.txt",
     output: () => (
-      <span>
+      <span className={styles.terminalOutput}>
         I{"'"}m a software engineer and student at Imperial College London,
         interested in full stack development, low level programming and ML!
         <br />

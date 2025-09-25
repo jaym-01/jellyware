@@ -26,19 +26,16 @@ $spacing-lg: 1.5rem;
 $spacing-xl: 2rem;
 $spacing-2xl: 3rem;
 
-// Hero section variables (zed.dev inspired)
-$hero-gradient-start: rgba(255, 255, 255, 0.1);
-$hero-gradient-end: rgba(255, 255, 255, 0.02);
 $hero-line-color: rgba(255, 255, 255, 0.1);
-$hero-section-spacing: 120px;
-$hero-grid-size: 40px;
-$hero-terminal-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+// $hero-section-spacing: 120px;
+// $hero-grid-size: 40px;
+$hero-terminal-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 $hero-window-bar-height: 32px;
 $hero-window-button-size: 12px;
 
 // Legacy variables (keeping for compatibility)
 $blinking-animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
-$smallScreenThreshold: 950px;
+$smallScreenThreshold: 800px;
 $rad: 5px;
 $background-padding: 30px;
 

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Cursor from "./Cursor";
+import styles from "@/styles/components/home/terminal.module.scss";
 
 const TYPING_SPEED = 130;
 
@@ -33,7 +34,7 @@ export default function Typer({
   }, [ti]);
 
   return (
-    <span>
+    <span className={styles.terminalOutput}>
       {text.replaceAll(" ", "\u00A0").slice(0, ti)}
       <Cursor
         style={{

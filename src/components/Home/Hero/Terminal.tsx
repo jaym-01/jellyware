@@ -70,7 +70,7 @@ export function BashPrompt({ ...props }) {
   return (
     <span
       style={{
-        fontWeight: "bold",
+        fontWeight: "600",
         paddingRight: "15px",
       }}
       {...props}

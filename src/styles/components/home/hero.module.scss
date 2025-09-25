@@ -12,10 +12,11 @@
 /* Middle Section - Decorative transition lines */
 .linesSection {
   position: relative;
-  height: 40vh;
-  min-height: 240px;
+  height: 28vh;
+  min-height: 168px;
   padding-left: $background-padding;
   padding-right: $background-padding;
+  border-bottom: 1px solid $border-color;
 
   .linesPattern {
     position: absolute;
@@ -40,7 +41,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 60px $background-padding;
+  padding: 0 $background-padding;
+  margin-top: -33px;
   min-height: 50vh;
 }
 
@@ -60,67 +62,14 @@
   align-items: center;
   justify-content: space-between;
   height: $hero-window-bar-height;
-  background: rgba(255, 255, 255, 0.08);
+  background: #121416;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0 16px;
-
-  .windowControls {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .windowButton {
-    width: $hero-window-button-size;
-    height: $hero-window-button-size;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &.close {
-      background: #ff5f56;
-    }
-
-    &.minimize {
-      background: #ffbd2e;
-    }
-
-    &.maximize {
-      background: #27ca3f;
-    }
-  }
-
-  .windowTitle {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
 }
 
 /* Terminal Wrapper - Contains the actual terminal */
 .terminalWrapper {
   padding: 0;
-
-  /* Override existing terminal styles to work with new container */
-  :global(.terminal) {
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    margin: 0 !important;
-    background: transparent !important;
-    padding: 40px !important;
-    height: auto !important;
-    min-height: 300px !important;
-  }
 }
 
 /* Responsive Design */
@@ -135,17 +84,19 @@
   }
 
   .linesSection {
-    height: 30vh;
-    min-height: 160px;
+    height: 21vh;
+    min-height: 112px;
   }
 
   .terminalSection {
-    padding: 40px 20px;
+    padding: 0 $background-padding + 20px;
+    margin-top: -33px;
     min-height: 50vh;
   }
 
   .terminalContainer {
-    max-width: 100%;
+    max-width: calc(100vw - #{$background-padding * 2});
+    width: 100%;
   }
 
   .windowBar {
@@ -171,7 +122,8 @@
 
 @media screen and (min-width: $smallScreenThreshold) {
   .terminalSection {
-    padding: 80px $background-padding;
+    padding: 0 $background-padding;
+    margin-top: -33px;
   }
 
   .terminalWrapper {
@@ -188,7 +140,7 @@
   }
 
   .linesSection {
-    height: 50vh;
+    height: 35vh;
   }
 
   .terminalContainer {
