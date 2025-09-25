@@ -9,18 +9,17 @@ export function Terminal({ ...props }) {
   const [textNum, setTextNum] = useState<number>(0);
 
   return (
-    <div className={styles.terminalWrapper} {...props}>
-      <TerminalAnimation
-        key={textNum}
-        text={displayText[textNum]}
-        handleComplete={() => {
-          setTimeout(
-            () => setTextNum((prev) => (prev + 1) % displayText.length),
-            300
-          );
-        }}
-      />
-    </div>
+    <TerminalAnimation
+      key={textNum}
+      text={displayText[textNum]}
+      handleComplete={() => {
+        setTimeout(
+          () => setTextNum((prev) => (prev + 1) % displayText.length),
+          300
+        );
+      }}
+      {...props}
+    />
   );
 }
 

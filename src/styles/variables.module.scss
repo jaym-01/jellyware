@@ -26,10 +26,20 @@ $spacing-lg: 1.5rem;
 $spacing-xl: 2rem;
 $spacing-2xl: 3rem;
 
+// Hero section variables (zed.dev inspired)
+$hero-gradient-start: rgba(255, 255, 255, 0.1);
+$hero-gradient-end: rgba(255, 255, 255, 0.02);
+$hero-line-color: rgba(255, 255, 255, 0.1);
+$hero-section-spacing: 120px;
+$hero-grid-size: 40px;
+$hero-terminal-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+$hero-window-bar-height: 32px;
+$hero-window-button-size: 12px;
+
 // Legacy variables (keeping for compatibility)
 $blinking-animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
 $smallScreenThreshold: 950px;
-$rad: 0px;
+$rad: 8px; // Updated for modern rounded corners
 $background-padding: 30px;
 
 // Mixins for reusable patterns
@@ -70,6 +80,59 @@ $background-padding: 30px;
   &:hover {
     color: $text-primary;
   }
+}
+
+// Hero section mixins
+@mixin hero-grid-pattern {
+  background-image: linear-gradient(
+      to right,
+      $hero-line-color 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, $hero-line-color 1px, transparent 1px);
+  background-size: $hero-grid-size $hero-grid-size;
+}
+
+@mixin hero-gradient-squares {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 20% 20%,
+        $hero-gradient-start 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        $hero-gradient-start 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 20% 80%,
+        $hero-gradient-start 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        $hero-gradient-start 0%,
+        transparent 50%
+      ),
+      linear-gradient(135deg, $hero-gradient-end 0%, transparent 50%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+@mixin hero-floating-element {
+  background: rgba($primaryColor, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: $rad;
+  box-shadow: $hero-terminal-shadow;
+  backdrop-filter: blur(10px);
 }
 
 @keyframes cursorAnimation {
