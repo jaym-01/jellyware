@@ -39,7 +39,7 @@ $hero-window-button-size: 12px;
 // Legacy variables (keeping for compatibility)
 $blinking-animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
 $smallScreenThreshold: 950px;
-$rad: 8px; // Updated for modern rounded corners
+$rad: 5px;
 $background-padding: 30px;
 
 // Mixins for reusable patterns

@@ -17,6 +17,9 @@ export function Hero({ ...props }) {
       {/* Terminal section with floating window */}
       <div className={styles.terminalSection}>
         <div className={styles.terminalContainer}>
+          {/* Empty window bar */}
+          <div className={styles.windowBar}></div>
+
           {/* Terminal component */}
           <div className={styles.terminalWrapper}>
             <Terminal />

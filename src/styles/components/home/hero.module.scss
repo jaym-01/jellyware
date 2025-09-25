@@ -12,8 +12,8 @@
 /* Middle Section - Decorative transition lines */
 .linesSection {
   position: relative;
-  height: 20vh;
-  min-height: 120px;
+  height: 40vh;
+  min-height: 240px;
   padding-left: $background-padding;
   padding-right: $background-padding;
 
@@ -135,8 +135,8 @@
   }
 
   .linesSection {
-    height: 15vh;
-    min-height: 80px;
+    height: 30vh;
+    min-height: 160px;
   }
 
   .terminalSection {
@@ -188,7 +188,7 @@
   }
 
   .linesSection {
-    height: 25vh;
+    height: 50vh;
   }
 
   .terminalContainer {
