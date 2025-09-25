@@ -1,10 +1,61 @@
-$darkBackground: #2c3239;
+// Base colors
+$darkBackground: #1a1a1a;
 $primaryColor: #181b23;
+$headerBackground: #1a1a1a; // Zed-inspired darker header
+$border-color: #333333; // Subtle dividing lines
+$text-primary: #ffffff;
+$text-secondary: #a1a1a1;
+
+// Header-specific variables (zed.dev inspired)
+$header-height: 60px; // Clean, minimal height
+$header-padding-x: clamp(1rem, 5vw, 2rem); // Responsive horizontal padding
+$header-padding-y: 0.75rem; // Vertical breathing room
+$header-border-width: 1px; // Thin dividing lines
+$header-max-width: 1200px; // Content alignment with main grid
+
+// Typography scale
+$font-size-logo: 1.25rem; // Balanced logo size
+$font-size-nav: 0.875rem; // Slightly smaller nav text
+$font-weight-logo: 600; // Medium weight for logo
+$font-weight-nav: 400; // Regular weight for nav
+
+// Spacing system
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+
+// Legacy variables (keeping for compatibility)
 $blinking-animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
 $smallScreenThreshold: 950px;
 $rad: 0px;
-$border-color: #54595b;
 $background-padding: 30px;
+
+// Mixins for reusable patterns
+@mixin header-divider($position: "both") {
+  @if $position == "top" or $position == "both" {
+    border-top: $header-border-width solid $border-color;
+  }
+  @if $position == "bottom" or $position == "both" {
+    border-bottom: $header-border-width solid $border-color;
+  }
+}
+
+@mixin content-container {
+  max-width: $header-max-width;
+  margin: 0 auto;
+  padding-left: $header-padding-x;
+  padding-right: $header-padding-x;
+}
+
+@mixin nav-link-hover {
+  transition: color 0.2s ease;
+  &:hover {
+    color: $text-primary;
+  }
+}
 
 @keyframes cursorAnimation {
   0% {

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useRef, use } from "react";
-import styles from "@/styles/components/home/terminal.module.scss";
+import { useEffect, useState, useRef } from "react";
+import Cursor from "./Cursor";
 
 const TYPING_SPEED = 130;
 
@@ -35,15 +35,12 @@ export default function Typer({
   return (
     <span>
       {text.replaceAll(" ", "\u00A0").slice(0, ti)}
-      <span
-        className={styles.cursor}
+      <Cursor
         style={{
           opacity: ti >= text.length ? 0 : 1,
           transitionDelay: "0.3s",
         }}
-      >
-        &nbsp;
-      </span>
+      />
     </span>
   );
 }
