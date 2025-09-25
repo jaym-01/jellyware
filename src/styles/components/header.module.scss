@@ -17,23 +17,22 @@
 .header {
   min-height: $header-height;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   @include header-divider("vertical");
   background-color: $darkBackground;
-  box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .headerContent {
-  @include full-width-container;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: $header-height;
   padding-top: $header-padding-y;
   padding-bottom: $header-padding-y;
+  gap: 80px;
 }
 
 .brand {
@@ -41,16 +40,16 @@
   align-items: center;
   text-decoration: none;
   color: $text-primary;
-  transition: color 0.2s ease;
+  transition: color 0.1s ease;
 
   &:hover {
-    color: $text-secondary;
+    opacity: 0.7;
   }
 }
 
 .brandTitle {
   font-size: $font-size-logo;
-  font-weight: $font-weight-logo;
+  font-weight: 400;
   margin: 0;
   line-height: 1.2;
   white-space: nowrap;
@@ -126,7 +125,6 @@
   padding: $spacing-sm 0;
   @include nav-link-hover;
 
-  // Larger touch target for mobile usability
   min-height: 44px;
   display: flex;
   align-items: center;

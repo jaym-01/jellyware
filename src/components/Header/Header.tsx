@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import styles from "@/styles/components/header.module.scss";
 import { navData } from "@/utils/nav_data";
+import Cursor from "../Home/Hero/Cursor";
 
 interface NavItem {
   title: string;
@@ -44,21 +45,29 @@ export default function Header({ className }: HeaderProps) {
   const [brandData, ...navigationItems] = navData;
 
   return (
-    // Sticky header wrapper with dividing lines (zed.dev style)
     <div className={`${styles.headerWrapper} ${className || ""}`}>
       <header className={styles.header} role="banner">
         <div className={styles.headerContent}>
-          {/* Brand/Logo section */}
           <Link
             href={`${brandData.link}/#terminal`}
             className={styles.brand}
             onClick={handleNavClick}
             aria-label="Go to homepage"
           >
-            <h1 className={styles.brandTitle}>{brandData.title}</h1>
+            <h1 className={styles.brandTitle}>
+              <span
+                style={{
+                  paddingRight: 6,
+                  fontWeight: "bold",
+                }}
+              >
+                $
+              </span>
+              cd ~
+              <Cursor blinking />
+            </h1>
           </Link>
 
-          {/* Desktop navigation - always visible on large screens */}
           <nav
             className={styles.desktopNav}
             role="navigation"
@@ -74,7 +83,6 @@ export default function Header({ className }: HeaderProps) {
             ))}
           </nav>
 
-          {/* Mobile menu toggle button */}
           <button
             className={styles.mobileMenuToggle}
             onClick={toggleMobileMenu}
@@ -86,7 +94,6 @@ export default function Header({ className }: HeaderProps) {
           </button>
         </div>
 
-        {/* Mobile navigation - conditionally rendered */}
         {isMobileScreen && isMobileMenuOpen && (
           <nav
             id="mobile-navigation"
@@ -109,10 +116,6 @@ export default function Header({ className }: HeaderProps) {
   );
 }
 
-/**
- * Reusable navigation link component with proper typing
- * Handles both internal and external links appropriately
- */
 interface NavigationLinkProps {
   navItem: NavItem;
   onClick: () => void;
