@@ -1,22 +1,27 @@
 "use client";
 
 import styles from "@/styles/components/home/terminal.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ReadTextProps, displayText } from "./text";
 import Typer from "./Typer";
+import { cubicBezier } from "motion";
 
 export function Terminal({ ...props }) {
   const [textNum, setTextNum] = useState<number>(0);
+  const [showEmpty, setShowEmpty] = useState<boolean>(false);
 
   return (
     <TerminalAnimation
-      key={textNum}
-      text={displayText[textNum]}
-      handleComplete={() => {
-        setTimeout(
-          () => setTextNum((prev) => (prev + 1) % displayText.length),
-          300
-        );
+      text={showEmpty ? undefined : displayText[textNum]}
+      handleComplete={(cb: () => void) => {
+        setTimeout(() => {
+          setShowEmpty(true);
+          cb();
+          setTimeout(() => {
+            setTextNum((prev) => (prev + 1) % displayText.length);
+            setShowEmpty(false);
+          }, 300);
+        }, 300);
       }}
       {...props}
     />
@@ -28,26 +33,40 @@ export function TerminalAnimation({
   handleComplete,
   ...props
 }: {
-  text: ReadTextProps;
-  handleComplete: () => void;
+  text?: ReadTextProps;
+  handleComplete: (cb: () => void) => void;
 }) {
   const [showOutput, setShowOutput] = useState<boolean>(false);
   const [showClear, setShowClear] = useState<boolean>(false);
+  const [showCommand, setShowCommand] = useState<boolean>(true);
 
   const handleCommandComplete = function () {
     setTimeout(() => {
       setShowOutput(true);
-      setTimeout(() => setShowClear(true), text.duration);
+      if (text?.duration) {
+        setTimeout(() => setShowClear(true), text?.duration);
+      }
     }, 300);
   };
+
+  useEffect(() => {
+    setShowCommand(true);
+    setShowOutput(false);
+    setShowClear(false);
+  }, [text?.command, text?.output, text?.duration]);
 
   return (
     <div className={styles.terminal} {...props}>
       <p className={styles.line}>
         <BashPrompt />
-        <Typer text={text.command} handleTextComplete={handleCommandComplete} />
+        {showCommand && text && (
+          <Typer
+            text={text.command}
+            handleTextComplete={handleCommandComplete}
+          />
+        )}
       </p>
-      {showOutput && (
+      {text && showOutput && (
         <>
           <p className={styles.line}>
             <text.output />
@@ -57,7 +76,16 @@ export function TerminalAnimation({
             {!showClear ? (
               <span className={styles.cursorAnimation}>&nbsp;</span>
             ) : (
-              <Typer text="clear" handleTextComplete={() => handleComplete()} />
+              <Typer
+                text="clear"
+                handleTextComplete={() =>
+                  handleComplete(() => {
+                    setShowClear(false);
+                    setShowOutput(false);
+                    setShowCommand(false);
+                  })
+                }
+              />
             )}
           </p>
         </>

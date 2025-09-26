@@ -9,26 +9,22 @@ export interface ReadTextProps {
 
 export const displayText: ReadTextProps[] = [
   {
-    command: "cat intro.txt",
-    output: () => (
-      <span className={styles.terminalOutput}>Hi, I{"'"}m Jay!</span>
-    ),
-    duration: 2000,
-  },
-  {
-    command: "cat whoami.txt",
+    command: "whoami",
     output: () => (
       <span className={styles.terminalOutput}>
-        I{"'"}m a software engineer and student at Imperial College London,
-        interested in full stack development, low level programming and ML!
+        👋 Hey, I’m Jay, a software engineer.
         <br />
         <br />
-        I recently won IC HACK 2025
+        <br />
+        I’m into building scalable backend systems, systems programming, and
+        machine learning.
         <br />
         <br />
-        You can find out more about me below vvv
+        <br />
+        I’m in my final year at <b>Imperial College London</b>, studying
+        Electronic and Information Engineering
       </span>
     ),
-    duration: 5000,
+    duration: 4000,
   },
 ];
