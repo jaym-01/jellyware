@@ -13,27 +13,29 @@ export default function Projects({
 }) {
   return (
     <section className={styles.projectWrapper} {...props}>
-      <h2>projects</h2>
       <div className={styles.projectGrid}>
         {projects.map((project, i) => (
           <motion.div
             key={i}
-            className={styles.projectContainer}
             initial={{
               opacity: 0,
+              y: 20,
             }}
             whileInView={{
               opacity: 1,
+              y: 0,
             }}
             transition={{
-              duration: 0.3 * ((i + 2) / 2),
-              ease: "easeInOut",
+              duration: 0.4,
+              delay: i * 0.1,
+              ease: "easeOut",
             }}
             viewport={{
               root: parentRef,
+              once: true,
             }}
           >
-            <ProjectBox project={project} />
+            <ProjectCard project={project} />
           </motion.div>
         ))}
       </div>
@@ -41,50 +43,44 @@ export default function Projects({
   );
 }
 
-function ProjectBox({ project }: { project: Project }) {
+function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className={styles.projectBox}>
-      <h3
-        style={{
-          width: "100%",
-          textAlign: "center",
-        }}
-      >
-        {project.title}
-      </h3>
-      <div className={styles.imgWrapper}>
+    <div className={styles.projectCard}>
+      <div className={styles.projectHeader}>
         <Image
           src={`/projects/${project.img}`}
-          alt=""
-          width={1000}
-          height={1000}
-          style={{
-            height: "100%",
-            width: "auto",
-            maxWidth: "70vw",
-          }}
+          alt={project.title}
+          width={300}
+          height={150}
+          className={styles.projectImage}
         />
       </div>
-      <ul>
-        {project.description.map((txt, i) => (
-          <li key={i} style={{ padding: 5 }}>
-            {txt}
-          </li>
-        ))}
-      </ul>
 
-      <div className={styles.linkWrapper}>
+      <div className={styles.projectContent}>
+        <h3 className={styles.projectTitle}>{project.title}</h3>
+        <p className={styles.projectSubtitle}>{project.description[0]}</p>
+
+        <ul className={styles.projectDetails}>
+          {project.description.slice(1, 3).map((desc, i) => (
+            <li key={i}>{desc}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={styles.projectFooter}>
         {project.src && (
-          <a href={project.src} target="_blank">
+          <a href={project.src} target="_blank" className={styles.projectLink}>
             View Code
           </a>
         )}
-        {project.extra_link && project.extra_link_text && (
-          <div style={{ flexGrow: "1", textAlign: "end" }}>
-            <a href={project.extra_link} target="_blank">
-              {project.extra_link_text}
-            </a>
-          </div>
+        {project.extra_link && (
+          <a
+            href={project.extra_link}
+            target="_blank"
+            className={styles.projectLink}
+          >
+            {project.extra_link_text || "Demo"}
+          </a>
         )}
       </div>
     </div>
