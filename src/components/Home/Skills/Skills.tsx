@@ -93,11 +93,11 @@ export default function Skills({ ...props }) {
           logo: "bash",
         },
         {
-          name: "Docker (local development and deployment)",
+          name: "Docker",
           logo: "docker",
         },
         {
-          name: "Figma (proficient at interface design)",
+          name: "Figma (Proficient)",
           logo: "figma",
         },
       ],
