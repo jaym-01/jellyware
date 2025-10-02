@@ -25,12 +25,14 @@ $square-size: 15px;
     right: $background-padding;
     bottom: 0;
     background-image: linear-gradient(
-        0deg,
-        $hero-line-color 1px,
-        transparent 1px
+        to bottom,
+        transparent 0%,
+        rgba(176, 149, 234, 0.15) 100%
       ),
+      linear-gradient(0deg, $hero-line-color 1px, transparent 1px),
       linear-gradient(90deg, $hero-line-color 1px, transparent 1px);
-    background-size: $square-size $square-size;
+    background-size: 100% 100%, $square-size $square-size,
+      $square-size $square-size;
 
     mask: linear-gradient(
       to bottom,
