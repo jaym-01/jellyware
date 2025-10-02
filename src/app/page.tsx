@@ -26,15 +26,6 @@ export default function Home() {
         <AboutMe id="aboutme" />
 
         <Projects parentRef={containerRef} id="projects" />
-
-        <div style={{ paddingLeft: 40, paddingRight: 40, textAlign: "center" }}>
-          <Link
-            href="/json-check"
-            style={{ color: "#fff", textDecoration: "underline" }}
-          >
-            Validate JSON text
-          </Link>
-        </div>
       </div>
     </main>
   );

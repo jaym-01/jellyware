@@ -12,19 +12,19 @@ export const displayText: ReadTextProps[] = [
     command: "whoami",
     output: () => (
       <span className={styles.terminalOutput}>
-        👋 Hey, I’m Jay, a software engineer.
+        👋 Hey, I’m Jay. I build things.
         <br />
         <br />
         <br />
-        I’m into building scalable backend systems, systems programming, and
-        machine learning.
+        I’m a software engineer into building scalable backend systems, systems
+        programming, and machine learning.
         <br />
         <br />
         <br />
-        I’m in my final year at <b>Imperial College London</b>, studying
-        Electronic and Information Engineering
+        I’m in my final year at Imperial College London, studying Electronic and
+        Information Engineering
       </span>
     ),
-    duration: 4000,
+    duration: 8000,
   },
 ];
