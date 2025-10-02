@@ -9,7 +9,7 @@
 }
 
 .contentContainer {
-  padding: 60px $background-padding;
+  padding: 60px calc($background-padding + 1px);
   max-width: 900px;
   margin: 0 auto;
 
@@ -17,6 +17,7 @@
   border-left: 1px solid $border-color;
   border-right: 1px solid $border-color;
   min-height: 400px;
+  box-sizing: border-box;
 }
 
 .introText {
@@ -97,7 +98,7 @@
     }
   }
 }
-@media screen and (max-width: $smallScreenThreshold) {
+@media screen and (max-width: 980px) {
   .contentContainer {
     padding: 40px ($background-padding + 20px);
     border-left: none;

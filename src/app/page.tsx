@@ -17,6 +17,8 @@ export default function Home() {
 
       <WorkExperience id="experience" />
 
+      <Separator height={80} />
+
       <Skills id="skills" />
 
       <Separator height={120} />
