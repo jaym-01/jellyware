@@ -13,6 +13,9 @@ export default function Projects({
 }) {
   return (
     <section className={styles.projectWrapper} {...props}>
+      <div className={styles.projectHeader}>
+        <h2 className={styles.projectSectionTitle}>Projects</h2>
+      </div>
       <div className={styles.projectGrid}>
         {projects.map((project, i) => (
           <motion.div
@@ -51,7 +54,7 @@ function ProjectCard({ project }: { project: Project }) {
           src={`/projects/${project.img}`}
           alt={project.title}
           width={300}
-          height={150}
+          height={250}
           className={styles.projectImage}
         />
       </div>
