@@ -113,24 +113,29 @@ export default function Skills({ ...props }) {
           <div key={categoryIndex} className={styles.skillCategory}>
             <h3 className={styles.categoryTitle}>{category.title}</h3>
 
-            <ul className={styles.skillsList}>
+            <div className={styles.skillsList}>
               {category.skills.map((skill, skillIndex) => (
-                <li key={skillIndex} className={styles.skillItem}>
-                  <Image
-                    src={`/skills/${skill.logo}.svg`}
-                    alt={`${skill.name} logo`}
-                    width={20}
-                    height={20}
-                    className={styles.skillLogo}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = "none";
-                    }}
-                  />
-                  <span className={styles.skillName}>{skill.name}</span>
-                </li>
+                <>
+                  <div key={skillIndex} className={styles.skillItem}>
+                    <Image
+                      src={`/skills/${skill.logo}.svg`}
+                      alt={`${skill.name} logo`}
+                      width={20}
+                      height={20}
+                      className={styles.skillLogo}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = "none";
+                      }}
+                    />
+                    <span className={styles.skillName}>{skill.name}</span>
+                  </div>
+                  {skillIndex < category.skills.length - 1 && (
+                    <span className={styles.skillSeparator}>|</span>
+                  )}
+                </>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>

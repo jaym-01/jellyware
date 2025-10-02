@@ -45,40 +45,23 @@
 }
 
 .skillsList {
-  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 0;
   padding: 0;
   margin: 0 0 20px 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  line-height: 1.6;
 }
 
 .skillItem {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 8px;
-  margin: 0;
-  padding: 16px;
-  background: $darkBackground;
-  transition: color 0.2s ease;
-  position: relative;
-  min-height: 56px;
-  box-sizing: border-box;
-  border-right: 1px solid rgba($border-color, 0.6);
-  border-bottom: 1px solid rgba($border-color, 0.6);
-
-  // Remove right border from last column (every 4th item)
-  &:nth-child(4n) {
-    border-right: none;
-  }
-
-  // Remove bottom border from last row items
-  &:nth-last-child(-n + 4) {
-    border-bottom: none;
-  }
+  transition: all 0.2s ease;
 
   &:hover {
+    transform: translateY(-1px);
     .skillName {
       color: $purple-accent;
     }
@@ -99,6 +82,15 @@
   font-weight: 400;
   line-height: 1.4;
   transition: color 0.2s ease;
+}
+
+.skillSeparator {
+  color: $text-secondary;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0 12px;
+  opacity: 0.6;
+  user-select: none;
 }
 
 .categoryNotes {
@@ -151,31 +143,11 @@
   }
 
   .skillsList {
-    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 0;
   }
 
   .skillItem {
     gap: 6px;
-    padding: 12px;
-    min-height: 48px;
-
-    // Reset desktop rules and apply mobile rules
-    &:nth-child(4n) {
-      border-right: 1px solid rgba($border-color, 0.6);
-    }
-
-    &:nth-last-child(-n + 4) {
-      border-bottom: 1px solid rgba($border-color, 0.6);
-    }
-
-    // Mobile: 3 columns
-    &:nth-child(3n) {
-      border-right: none;
-    }
-
-    &:nth-last-child(-n + 3) {
-      border-bottom: none;
-    }
   }
 
   .skillLogo {
@@ -185,6 +157,11 @@
 
   .skillName {
     font-size: 14px;
+  }
+
+  .skillSeparator {
+    font-size: 14px;
+    margin: 0 10px;
   }
 
   .skillCategory {
@@ -207,31 +184,11 @@
 
 @media screen and (max-width: 480px) {
   .skillsList {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 0;
   }
 
   .skillItem {
     gap: 6px;
-    padding: 10px 8px;
-    min-height: 44px;
-
-    // Reset tablet rules and apply small mobile rules
-    &:nth-child(3n) {
-      border-right: 1px solid rgba($border-color, 0.6);
-    }
-
-    &:nth-last-child(-n + 3) {
-      border-bottom: 1px solid rgba($border-color, 0.6);
-    }
-
-    // Small mobile: 2 columns
-    &:nth-child(2n) {
-      border-right: none;
-    }
-
-    &:nth-last-child(-n + 2) {
-      border-bottom: none;
-    }
   }
 
   .skillLogo {
@@ -241,5 +198,10 @@
 
   .skillName {
     font-size: 13px;
+  }
+
+  .skillSeparator {
+    font-size: 13px;
+    margin: 0 8px;
   }
 }
