@@ -9,6 +9,9 @@
   text-wrap: wrap;
   width: 100%;
   border: none;
+  animation: dropIn 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .terminal * {
@@ -61,5 +64,16 @@
 @media screen and (min-width: $smallScreenThreshold) {
   .terminal {
     min-height: 400px;
+  }
+}
+
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
