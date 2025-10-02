@@ -1,8 +1,8 @@
 $darkBackground: #111216;
-$primaryColor: #181b23;
+$primaryColor: #151c20;
 $border-color: #444444;
 $text-primary: #ffffff;
-$text-secondary: #a1a1a1;
+$text-secondary: #afafaf;
 
 $header-height: 60px;
 $header-padding-x: clamp(1rem, 5vw, 2rem);
@@ -20,6 +20,7 @@ $spacing-xl: 2rem;
 $spacing-2xl: 3rem;
 
 $hero-line-color: rgba(176, 149, 234, 0.25);
+$purple-accent: rgb(176, 149, 234);
 $hero-terminal-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 $hero-window-bar-height: 32px;
 $blinking-animation: cursorAnimation 1.3s steps(1, start) 0s infinite;
@@ -59,8 +60,8 @@ $background-padding: 30px;
 }
 
 @mixin hero-floating-element {
-  background: rgba($primaryColor, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000000;
+  border: 1px solid $border-color;
   border-radius: $rad;
   box-shadow: $hero-terminal-shadow;
   backdrop-filter: blur(10px);

@@ -49,7 +49,7 @@ export default function Header({ className }: HeaderProps) {
       <header className={styles.header} role="banner">
         <div className={styles.headerContent}>
           <Link
-            href={`${brandData.link}/#terminal`}
+            href={brandData.link}
             className={styles.brand}
             onClick={handleNavClick}
             aria-label="Go to homepage"

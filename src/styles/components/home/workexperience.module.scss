@@ -1,0 +1,136 @@
+@use "../../variables.module" as *;
+
+.workExperienceWrapper {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
+.contentContainer {
+  padding: 60px $background-padding;
+  max-width: 900px;
+  margin: 0 auto;
+
+  // Add left and right borders like other sections
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  min-height: 400px;
+}
+
+.introText {
+  font-size: 18px;
+  margin-bottom: 32px;
+  color: $text-primary;
+  font-weight: 400;
+}
+
+.experienceList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.experienceItem {
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.companyHeader {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: $text-primary;
+  line-height: 1.4;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.roleDetails {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+
+  li {
+    position: relative;
+    margin-bottom: 8px;
+    color: $text-secondary;
+    line-height: 1.5;
+    font-size: 14px;
+
+    &:before {
+      content: "•";
+      position: absolute;
+      left: -20px;
+      color: $text-secondary;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: $text-primary;
+      font-weight: 600;
+    }
+  }
+}
+
+.cvLink {
+  margin-top: 40px;
+  font-size: 16px;
+
+  a {
+    color: $purple-accent;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $text-primary;
+      text-decoration: underline;
+    }
+  }
+}
+@media screen and (max-width: $smallScreenThreshold) {
+  .contentContainer {
+    padding: 40px ($background-padding + 20px);
+    border-left: none;
+    border-right: none;
+  }
+
+  .introText {
+    font-size: 16px;
+  }
+
+  .companyHeader {
+    font-size: 15px;
+  }
+
+  .roleDetails li {
+    font-size: 13px;
+  }
+
+  .cvLink {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .contentContainer {
+    padding: 30px 20px;
+  }
+
+  .roleDetails {
+    padding-left: 16px;
+
+    li:before {
+      left: -16px;
+    }
+  }
+}

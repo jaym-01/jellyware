@@ -12,7 +12,7 @@ export default function Projects({
   [x: string]: any;
 }) {
   return (
-    <div className={styles.projectWrapper}>
+    <section className={styles.projectWrapper} {...props}>
       <h2>projects</h2>
       <div className={styles.projectGrid}>
         {projects.map((project, i) => (
@@ -37,7 +37,7 @@ export default function Projects({
           </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

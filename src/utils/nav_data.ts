@@ -4,11 +4,11 @@ export const navData: {
 }[] = [
   {
     title: "$ cd ~",
-    link: "/",
+    link: "/#aboutme",
   },
   {
-    title: "about me",
-    link: "/#aboutme",
+    title: "experience",
+    link: "/#experience",
   },
   {
     title: "projects[]",

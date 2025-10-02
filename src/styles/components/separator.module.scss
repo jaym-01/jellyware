@@ -1,0 +1,6 @@
+@use "../variables.module" as *;
+
+.separator {
+  position: relative;
+  border-bottom: 1px solid $border-color;
+}

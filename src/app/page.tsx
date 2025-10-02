@@ -3,16 +3,20 @@
 import { Hero } from "@/components/Home/Hero/Hero";
 import AboutMe from "../components/Home/AboutMe/AboutMe";
 import Projects from "@/components/Home/Projects/Projects";
+import WorkExperience from "@/components/Home/WorkExperience/WorkExperience";
 import { useRef } from "react";
-import Link from "next/link";
+import Separator from "../components/Separator/Separator";
 
 export default function Home() {
   const containerRef = useRef(null);
 
   return (
     <main ref={containerRef}>
-      {/* Hero section with zed.dev inspired design */}
-      <Hero id="hero" />
+      <Hero id="aboutme" />
+
+      <WorkExperience id="experience" />
+
+      <Separator height={120} />
 
       {/* Content sections with updated spacing */}
       <div
@@ -23,8 +27,6 @@ export default function Home() {
           paddingBottom: "15vh",
         }}
       >
-        <AboutMe id="aboutme" />
-
         <Projects parentRef={containerRef} id="projects" />
       </div>
     </main>
