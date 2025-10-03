@@ -69,22 +69,28 @@ function ProjectCard({ project }: { project: Project }) {
         </ul>
       </div>
 
-      <div className={styles.projectFooter}>
-        {project.src && (
-          <a href={project.src} target="_blank" className={styles.projectLink}>
-            View Code
-          </a>
-        )}
-        {project.extra_link && (
-          <a
-            href={project.extra_link}
-            target="_blank"
-            className={styles.projectLink}
-          >
-            {project.extra_link_text || "Demo"}
-          </a>
-        )}
-      </div>
+      {(project.src || project.extra_link) && (
+        <div className={styles.projectFooter}>
+          {project.src && (
+            <a
+              href={project.src}
+              target="_blank"
+              className={styles.projectLink}
+            >
+              View Code
+            </a>
+          )}
+          {project.extra_link && (
+            <a
+              href={project.extra_link}
+              target="_blank"
+              className={styles.projectLink}
+            >
+              {project.extra_link_text || "Demo"}
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 }

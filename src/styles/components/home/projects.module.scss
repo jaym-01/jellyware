@@ -139,21 +139,28 @@
 }
 
 .projectLink {
-  color: $purple-accent;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 400;
   padding: 6px 12px;
-  border: 1px solid rgba(176, 149, 234, 0.3);
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  background: #1a1c21;
+  border: 1px solid #2a2c31;
+  border-radius: 4px;
+  transition: all 0.15s ease;
   flex: 1;
   text-align: center;
+  letter-spacing: 0.01em;
 
   &:hover {
-    background: rgba(176, 149, 234, 0.1);
-    border-color: rgba(176, 149, 234, 0.5);
-    transform: translateY(-1px);
+    background: #242731;
+    border-color: #3a3c41;
+    transform: none;
+  }
+
+  &:active {
+    background: #141618;
+    border-color: #1a1c21;
   }
 }
 
@@ -215,8 +222,8 @@
   }
 
   .projectLink {
-    font-size: 11px;
-    padding: 8px 12px;
+    font-size: 10px;
+    padding: 6px 10px;
   }
 }
 
