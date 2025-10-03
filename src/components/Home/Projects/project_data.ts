@@ -14,14 +14,25 @@ export const projects: Project[] = [
     description: [
       "This project won the research category of IC HACK 2025, Europe's largest student run hackathon!",
       "This tool takes a math topic as input and generates a video (based on 3blue1brown videos) and interactive page.",
-      "I worked on the backend: the API server, video and meta data storage, and connecting the AI agent to an API.",
       "Videos are stored on AWS S3 buckets, metadata is stored in dynamodb and video title are stored in a vector database for querying.",
-      "The backend consists of three layers: the API server (built with FastAPI), a Redis message queue, and a Celery worker.",
+      "The backend consists of three layers: the API server (built with FastAPI, interfacing the video and meta data storage), a Redis message queue, and a Celery worker (runs the AI Agent workflow).",
       "This architecture allows the API server to remain responsive while long-running tasks are offloaded to a separate process - generating a video takes around 2-5mins.",
     ],
     src: "https://devpost.com/software/intellilearn-kjxv19?ref_content=user-portfolio&ref_feature=in_progress",
     extra_link: "https://www.youtube.com/watch?v=y3tJCa_o4J0",
     extra_link_text: "Watch the demo",
+  },
+  {
+    title: "snipr",
+    img: "snipr.png",
+    description: [
+      "Production-ready desktop app that removes silences and provides transcripts for audio files.",
+      "Currently has 1 user 😱",
+      "Implemented decoding and encoding audio files to and from PCM samples with FFMPEG, an algorithm to remove silences in O(n) time and provided a responsive UI by spawning new threads to process the audio file, all in Rust.",
+      "Implemented a CI-CD pipeline using GitHub Actions to build the app and provide automatic updates for users. ",
+      "Developed a Rust-Python integration using PyO3 to call OpenAI’s Whisper model to provide audio transcriptions.",
+    ],
+    src: "https://github.com/jaym-01/snipr",
   },
   {
     title: "Rx2Label",

@@ -115,7 +115,10 @@ export default function Skills({ ...props }) {
 
             <div className={styles.skillsList}>
               {category.skills.map((skill, skillIndex) => (
-                <>
+                <div
+                  key={skillIndex}
+                  style={{ display: "flex", alignItems: "center" }}
+                >
                   <div key={skillIndex} className={styles.skillItem}>
                     <Image
                       src={`/skills/${skill.logo}.svg`}
@@ -133,7 +136,7 @@ export default function Skills({ ...props }) {
                   {skillIndex < category.skills.length - 1 && (
                     <span className={styles.skillSeparator}>|</span>
                   )}
-                </>
+                </div>
               ))}
             </div>
           </div>

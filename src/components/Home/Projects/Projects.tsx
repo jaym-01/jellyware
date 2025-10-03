@@ -13,7 +13,7 @@ export default function Projects({
 }) {
   return (
     <section className={styles.projectWrapper} {...props}>
-      <div className={styles.projectHeader}>
+      <div className={styles.projectPageHeader}>
         <h2 className={styles.projectSectionTitle}>Projects</h2>
       </div>
       <div className={styles.projectGrid}>
@@ -61,10 +61,9 @@ function ProjectCard({ project }: { project: Project }) {
 
       <div className={styles.projectContent}>
         <h3 className={styles.projectTitle}>{project.title}</h3>
-        <p className={styles.projectSubtitle}>{project.description[0]}</p>
 
         <ul className={styles.projectDetails}>
-          {project.description.slice(1, 3).map((desc, i) => (
+          {project.description.map((desc, i) => (
             <li key={i}>{desc}</li>
           ))}
         </ul>

@@ -10,7 +10,7 @@
 
 .contentContainer {
   padding: 60px calc($background-padding + 1px);
-  max-width: 900px;
+  max-width: $section-width;
   margin: 0 auto;
 
   // Add left and right borders like other sections
